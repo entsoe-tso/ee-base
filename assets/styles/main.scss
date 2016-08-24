@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Index
+   ========================================================================== */
+
+/**
+ * Following Necolas' Principles of writing consistent, idiomatic CSS:
+ * https://github.com/necolas/idiomatic-css
+ */
+
+
+/* Normalize
+   ========================================================================== */
+
+/**
+ * Normalize.css, a modern, HTML5-ready alternative to CSS resets:
+ * http://necolas.github.io/normalize.css/
+ */
+
+@import "ee-design-system/normalize";
+
+/**
+ * Kenneth Ormandy's OpenType features—ligatures, kerning, and more—to Normalize.css:
+ * https://github.com/kennethormandy/normalize-opentype.css
+ */
+
+// @import "ee-design-system/normalize-opentype";
+
+
+/* Core
+   ========================================================================== */
+@import "ee-design-system/base";
+@import "ee-design-system/grid";
+@import "ee-design-system/colours";
+@import "ee-design-system/typography";
+@import "ee-design-system/utilities";

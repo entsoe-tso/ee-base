@@ -1,0 +1,37 @@
+/* @FontFace
+------------------------------------------------------- */
+@font-face {
+  font-family:'Brandon';
+    src:url('/assets/fonts/OpenSans-ExtraBold.eot');
+    src:url('OpenSans-ExtraBold.eot#iefix') format('embedded-opentype'),
+        url('OpenSans-ExtraBold.woff') format('woff');
+  }
+
+@font-face {
+  font-family:'Open Sans';
+    src:url('OpenSans-regular.eot');
+    src:url('OpenSans-regular.eot#iefix') format('embedded-opentype'),
+        url('OpenSans-regular.woff') format('woff');
+  }
+
+@font-face {
+  font-family:'Open Sans Italic';
+    src:url('OpenSans-Italic.eot');
+    src:url('OpenSans-Italic.eot#iefix') format('embedded-opentype'),
+        url('OpenSans-Italic.woff') format('woff');
+  }
+
+@font-face {
+  font-family:'Open Sans Bold';
+    src:url('OpenSans-Bold.eot');
+    src:url('OpenSans-Bold.eot#iefix') format('embedded-opentype'),
+        url('OpenSans-Bold.woff') format('woff');
+  }
+
+@font-face {
+  font-family:'Open Sans Bold Italic';
+    src:url('OpenSans-BoldItalic.eot');
+    src:url('OpenSans-BoldItalic.eot#iefix') format('embedded-opentype'),
+        url('OpenSans-BoldItalic.woff') format('woff');
+  }
+
