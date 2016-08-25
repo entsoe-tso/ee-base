@@ -1,37 +1,128 @@
-/* @FontFace
-------------------------------------------------------- */
-@font-face {
-  font-family:'Brandon';
-    src:url('/assets/fonts/OpenSans-ExtraBold.eot');
-    src:url('OpenSans-ExtraBold.eot#iefix') format('embedded-opentype'),
-        url('OpenSans-ExtraBold.woff') format('woff');
-  }
+// initital source thanks to https://github.com/hotosm/oam-design-system/blob/develop/assets/styles/oam-design-system/_base.scss
 
-@font-face {
-  font-family:'Open Sans';
-    src:url('OpenSans-regular.eot');
-    src:url('OpenSans-regular.eot#iefix') format('embedded-opentype'),
-        url('OpenSans-regular.woff') format('woff');
-  }
+/* Reset the box-sizing */
 
-@font-face {
-  font-family:'Open Sans Italic';
-    src:url('OpenSans-Italic.eot');
-    src:url('OpenSans-Italic.eot#iefix') format('embedded-opentype'),
-        url('OpenSans-Italic.woff') format('woff');
-  }
+html {
+  box-sizing: border-box;
+}
 
-@font-face {
-  font-family:'Open Sans Bold';
-    src:url('OpenSans-Bold.eot');
-    src:url('OpenSans-Bold.eot#iefix') format('embedded-opentype'),
-        url('OpenSans-Bold.woff') format('woff');
-  }
+// *,
+// *::before,
+// *::after {
+//   box-sizing: inherit;
+// }
 
-@font-face {
-  font-family:'Open Sans Bold Italic';
-    src:url('OpenSans-BoldItalic.eot');
-    src:url('OpenSans-BoldItalic.eot#iefix') format('embedded-opentype'),
-        url('OpenSans-BoldItalic.woff') format('woff');
+*, *:after, *:before {
+  -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+          box-sizing:border-box;
   }
+/* Make viewport responsive on every browser */
 
+@at-root {
+  @-moz-viewport      { width: device-width; }
+  @-ms-viewport       { width: device-width; }
+  @-o-viewport        { width: device-width; }
+  @-webkit-viewport   { width: device-width; }
+  @viewport           { width: device-width; }
+}
+
+
+html {
+  font-size: $root-font-size;
+  // Changes the default tap highlight to be completely transparent in iOS.
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  background: #fff;
+  color: $base-font-color;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  font-style: $base-font-style;
+  min-width: $row-min-width;
+}
+
+
+/* Links
+   ========================================================================== */
+
+a {
+  cursor: pointer;
+  color: $link-color;
+  text-decoration: none;
+  transition: opacity 0.24s ease 0s;
+}
+
+a:visited {
+  color: $link-color;
+}
+
+a:hover {
+  opacity: 0.64;
+}
+
+a:active {
+  outline: none;
+  transform: translate(0, 1px);
+}
+
+/* Buttons
+   ========================================================================== */
+
+/**
+ * iOS "clickable elements" fix for role="button":
+ * https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+ */
+
+[role="button"] {
+  cursor: pointer;
+}
+
+
+/* Forms
+   ========================================================================== */
+
+input, select, textarea {
+  font: inherit;
+  height: auto;
+  width: auto;
+  margin: 0;
+}
+
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width:100%;
+  vertical-align:top;
+  }
+.center img,
+img.center { margin-left:auto; margin-right:auto; }
+
+
+/* Font smoothing
+   ========================================================================== */
+
+/**
+ * Antialiased font smoothing works best for light text on a dark background.
+ * Apply to single elements instead of globally to body.
+ * Note this only applies to webkit-based desktop browsers and Firefox 25 (and later) on the Mac.
+ */
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.button {
+  @include user-select(none);
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  min-width: 2rem;
+  background: none; 
+  text-shadow: none;
+  border: 0;
+  border-radius: $base-border-radius;
+  font-weight: $base-font-bold;
+  cursor: pointer;
+
+  /* States */
+
+  &:hover {
+    opacity: initial;
+  }
+
+  .drop--open > &,
+  &.button--active,
+  &:active {
+    z-index: 2;
+    transform: none;
+  }
+
+  &, &:focus {
+    outline: none; // This causes usability problems. Needs fixing.
+  }
+
+  /* Icon handling */
+  &::before, &::after,
+  [class^="ee-icon-"], [class*=" ee-icon-"],
+  [class^="collecticons-"], [class*=" collecticons-"] {
+    font-size: 1rem;
+  }
+  &::before { margin-right: 0.375rem; }
+  &::after { margin-left: 0.375rem; }
+
+  &::before,
+  &::after,
+  > * {
+    vertical-align: top;
+    display: inline-block;
+    line-height: inherit !important;
+  }
+
+  /* Checkbox/radio handling */
+  > input[type=checkbox],
+  > input[type=radio] {
+    // @extend .visually-hidden;
+  }
+
+  /* Animation */
+  transition: background-color 0.24s ease 0s;
+  
+  background-color: $base-color;
+  
+  &, &:visited {
+    color: #fff;
+  }
+  &:hover {
+    background-color: shade($base-color, 4%);
+  }
+}
+
+
+// next and previous links
+a.prev, a.next, a.all {
+    padding: 10px;
+    background: #ccc;
+    border-radius: 20px;
+    display: inline-block;
+}

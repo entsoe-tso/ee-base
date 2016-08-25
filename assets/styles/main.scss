@@ -16,7 +16,8 @@
  * http://necolas.github.io/normalize.css/
  */
 
-@import "ee-design-system/normalize";
+@import "ee-design-system/normalise";
+@import "ee-design-system/reset";
 
 /**
  * Kenneth Ormandy's OpenType features—ligatures, kerning, and more—to Normalize.css:
@@ -26,10 +27,18 @@
 // @import "ee-design-system/normalize-opentype";
 
 
+/* Plugins and mixins
+   ========================================================================== */
+@import "bourbon";
+@import	"ee-design-system/variables";
+@import "ee-design-system/functions";
+@import "ee-design-system/mixins";
+
 /* Core
    ========================================================================== */
 @import "ee-design-system/base";
 @import "ee-design-system/grid";
 @import "ee-design-system/colours";
+@import "ee-design-system/code";
 @import "ee-design-system/typography";
 @import "ee-design-system/utilities";

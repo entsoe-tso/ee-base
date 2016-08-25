@@ -13,6 +13,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 var notifier = require('node-notifier');
 var cp = require('child_process');
+var runSequence = require('run-sequence');
 var OAM_ADDONS = require('./gulp-addons');
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -35,11 +36,11 @@ readPackage();
 // ------------------------- Callable tasks ----------------------------------//
 // ---------------------------------------------------------------------------//
 
-gulp.task('serve', ['vendorScripts', 'javascript', 'styles'], function () {
+gulp.task('serve', ['build'], function () {
   browserSync({
     port: 3000,
     server: {
-      baseDir: ['.tmp'],
+      baseDir: ['.tmp', '_site'],
       routes: {
         '/node_modules': './node_modules'
       },
@@ -47,24 +48,26 @@ gulp.task('serve', ['vendorScripts', 'javascript', 'styles'], function () {
     }
   });
 
+  gulp.watch(['docs/**/*.html', 'docs/**/*.md', '_config*'], function() {
+    runSequence('jekyll', reload);
+  });
+
   // watch for changes
-  gulp.watch([
-    'sandbox/**/*.html',
-    'sandbox/assets/graphics/**/*',
-    '!sandbox/assets/graphics/collecticons/**/*'
-  ], [reload]);
+  gulp.watch(['assets/styles/*/*.scss'], function() {
+    runSequence('styles', ['copy:assets'], reload)
+  });
 
-  gulp.watch('assets/icons/**', ['oam:icons']);
-  gulp.watch('sandbox/assets/graphics/collecticons/**', ['collecticons']);
+  // gulp.watch('assets/icons/**', ['oam:icons']);
+  // gulp.watch('sandbox/assets/graphics/collecticons/**', ['collecticons']);
 
-  gulp.watch(['sandbox/assets/styles/**/*.scss', 'assets/styles/**/*.scss'], ['styles']);
-  gulp.watch('package.json', ['vendorScripts']);
+  // gulp.watch(['sandbox/assets/styles/**/*.scss', 'assets/styles/**/*.scss'], ['styles']);
+  // gulp.watch('package.json', ['vendorScripts']);
 });
 
 gulp.task('clean', function () {
   return del(['.tmp', 'dist'])
     .then(function () {
-      $.cache.clearAll();
+      // $.cache.clearAll();
     });
 });
 
@@ -80,6 +83,16 @@ gulp.task('copy:assets', function(done) {
   return gulp.src('.tmp/assets/**')
     .pipe(gulp.dest('_site/assets'));
 });
+
+
+// Build the jekyll website.
+gulp.task('jekyll', function (done) {
+  var args = ['build'];
+  args.push('--config=_config.yml');
+  return cp.spawn('jekyll', args, {stdio: 'inherit'})
+    .on('close', done);
+});
+
 
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -152,53 +165,53 @@ gulp.task('vendorScripts', function () {
 // ------------------------ Collecticon tasks --------------------------------//
 // -------------------- (Font generation related) ----------------------------//
 // ---------------------------------------------------------------------------//
-gulp.task('collecticons', function (done) {
-  var args = [
-    'node_modules/collecticons-processor/bin/collecticons.js',
-    'compile',
-    'sandbox/assets/graphics/collecticons/',
-    '--font-embed',
-    '--font-dest', 'sandbox/assets/fonts',
-    '--font-name', 'Collecticons',
-    '--font-types', 'woff',
-    '--style-format', 'sass',
-    '--style-dest', 'sandbox/assets/styles/',
-    '--style-name', 'collecticons',
-    '--class-name', 'collecticons',
-    '--author-name', 'Development Seed',
-    '--author-url', 'https://developmentseed.org/',
-    '--no-preview'
-  ];
+// gulp.task('collecticons', function (done) {
+//   var args = [
+//     'node_modules/collecticons-processor/bin/collecticons.js',
+//     'compile',
+//     'sandbox/assets/graphics/collecticons/',
+//     '--font-embed',
+//     '--font-dest', 'sandbox/assets/fonts',
+//     '--font-name', 'Collecticons',
+//     '--font-types', 'woff',
+//     '--style-format', 'sass',
+//     '--style-dest', 'sandbox/assets/styles/',
+//     '--style-name', 'collecticons',
+//     '--class-name', 'collecticons',
+//     '--author-name', 'Development Seed',
+//     '--author-url', 'https://developmentseed.org/',
+//     '--no-preview'
+//   ];
 
-  return cp.spawn('node', args, {stdio: 'inherit'})
-    .on('close', done);
-});
+//   return cp.spawn('node', args, {stdio: 'inherit'})
+//     .on('close', done);
+// });
 
 // /////////////////////////////////////////////////////////////////////////////
 // ------------------------- OAM icons tasks ---------------------------------//
 // -------------------- (Font generation related) ----------------------------//
 // ---------------------------------------------------------------------------//
-gulp.task('oam:icons', function (done) {
-  var args = [
-    'node_modules/collecticons-processor/bin/collecticons.js',
-    'compile',
-    'assets/icons/',
-    '--font-embed',
-    '--font-dest', 'assets/fonts',
-    '--font-name', 'OAM DS Icons',
-    '--font-types', 'woff',
-    '--style-format', 'sass',
-    '--style-dest', 'assets/styles/oam-design-system',
-    '--style-name', 'oam-ds-icons',
-    '--class-name', 'oam-ds-icon',
-    '--author-name', 'Development Seed',
-    '--author-url', 'https://developmentseed.org/',
-    '--no-preview'
-  ];
+// gulp.task('oam:icons', function (done) {
+//   var args = [
+//     'node_modules/collecticons-processor/bin/collecticons.js',
+//     'compile',
+//     'assets/icons/',
+//     '--font-embed',
+//     '--font-dest', 'assets/fonts',
+//     '--font-name', 'OAM DS Icons',
+//     '--font-types', 'woff',
+//     '--style-format', 'sass',
+//     '--style-dest', 'assets/styles/oam-design-system',
+//     '--style-name', 'oam-ds-icons',
+//     '--class-name', 'oam-ds-icon',
+//     '--author-name', 'Development Seed',
+//     '--author-url', 'https://developmentseed.org/',
+//     '--no-preview'
+//   ];
 
-  return cp.spawn('node', args, {stdio: 'inherit'})
-    .on('close', done);
-});
+//   return cp.spawn('node', args, {stdio: 'inherit'})
+//     .on('close', done);
+// });
 
 // //////////////////////////////////////////////////////////////////////////////
 // --------------------------- Helper tasks -----------------------------------//
@@ -223,5 +236,17 @@ gulp.task('styles', function () {
     }))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/assets/styles'))
-    .pipe(reload({stream: true}));
+    // .pipe(reload({stream: true}));
 });
+
+// Main build task
+// Builds the site. Destination --> _site
+gulp.task('build', function(done) {
+  runSequence('clean', ['jekyll', 'styles'], 'copy:assets', done);
+});
+
+function browserReload() {
+  if (shouldReload) {
+    browserSync.reload();
+  }
+}
