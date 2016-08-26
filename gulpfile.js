@@ -85,6 +85,21 @@ gulp.task('copy:assets', function(done) {
     .pipe(gulp.dest('_site/assets'));
 });
 
+gulp.task('copy:css', function(done) {
+  return gulp.src('.tmp/assets/styles/*')
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('copy:fonts', function(done) {
+  return gulp.src('assets/fonts/**/*')
+    .pipe(gulp.dest('dist'))
+});
+
+gulp.task('copy:images', function(done) {
+  return gulp.src('assets/graphics/**')
+    .pipe(gulp.dest('dist'))
+});
+
 
 
 
