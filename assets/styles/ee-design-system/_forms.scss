@@ -1,0 +1,627 @@
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+.form {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form__control {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: $base-font-color;
+  background: #fff;
+  border: 0;
+  border-radius: $base-border-radius;
+  font-family: inherit;
+  box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.16);
+
+  /* Placeholder */
+  &::placeholder {
+    opacity: 0.64;
+  }
+
+  /* States */
+  &[disabled] {
+    @extend .disabled;
+  }
+
+  &[readonly] {
+    cursor: text;
+    opacity: 0.64;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.32);
+  }
+
+  /* Animation */
+  transition: all 0.24s ease 0s;
+  transform: translateZ(0);
+}
+
+/* Select */
+
+select.form__control {
+  box-shadow: inset 0 -3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.16);
+  cursor: pointer;
+}
+
+/* Textarea */
+
+textarea.form__control {
+  height: auto;
+  resize: vertical;
+}
+
+
+/* Form control size modifiers
+   ========================================================================== */
+
+/* Small (24px) */
+
+.form__control--small {
+  padding: 0.125rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  height: 1.5rem;
+}
+
+/* Medium (32px)
+   Default
+*/
+
+.form__control--medium {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  height: 2rem;
+}
+
+/* Large (40px) */
+
+.form__control--large {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  height: 2.5rem;
+}
+
+/* XLarge (48px) */
+
+.form__control--xlarge {
+  padding: 0.5rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  height: 3rem;
+}
+
+
+/* Form groups
+   ========================================================================== */
+
+.form__group {
+  margin-bottom: $global-spacing;
+  @extend .clearfix;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+/* Input groups
+   ========================================================================== */
+
+.form__input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  width: 100%;
+}
+
+.form__input-group-button:first-child > .button,
+.form__input-group-button:first-child > .button-group {
+  z-index: 2;
+  margin-right: -1px;
+}
+
+.form__input-group-button:last-child > .button,
+.form__input-group-button:last-child > .button-group {
+  z-index: 2;
+  margin-left: -1px;
+}
+
+.form__input-group .form__control:first-child,
+.form__input-group-button:first-child > .button,
+.form__input-group-button:first-child > .button-group > .button,
+.form__input-group-button:first-child > .dropdown-toggle,
+.form__input-group-button:last-child > .button-group:not(:last-child) > .button {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form__input-group .form__control:last-child,
+.form__input-group-button:first-child > .button-group:not(:first-child) > .button,
+.form__input-group-button:first-child > .button:not(:first-child),
+.form__input-group-button:last-child > .button,
+.form__input-group-button:last-child > .button-group > .button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form__input-group .form__control {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  &:focus {
+    z-index: 2;
+  }
+}
+
+.form__input-group-button {
+  position: relative;
+  font-size: 0;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.form__input-group .form__control,
+.form__input-group-button {
+  display: table-cell;
+}
+
+
+/* Form fieldsets
+   ========================================================================== */
+
+.form__fieldset {
+  padding: 0 0 ($global-spacing * 1.5) 0;
+  margin: 0 0 ($global-spacing * 1.5) 0;
+  border: 0;
+  position: relative;
+  box-shadow: inset 0 -1px 0 0 $base-alpha-color;
+
+  &:last-child {
+    padding-bottom: 0;
+    box-shadow: none;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form__legend {
+  @extend .heading-alt;
+  display: block;
+  width: 100%;
+  border: 0;
+  margin: 0 0 $global-spacing 0;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+
+/* Form labels
+   ========================================================================== */
+
+label[for] {
+  cursor: pointer;
+}
+
+.form__label {
+  display: block;
+  font-weight: $base-font-bold;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 ($global-spacing / 2) 0;
+}
+
+
+/* Form options (radios and checkboxes)
+   ========================================================================== */
+
+.form__option {
+  position: relative;
+  display: inline-block;
+  margin-bottom: $global-spacing;
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  padding-left: $global-spacing * 1.25;
+  input {
+    position: absolute;
+    top: $global-spacing / 4;
+    left: 0;
+  }
+}
+
+.form__option:not(.form__option--inline) {
+  display: table; // Hack-ish. Please fix me.
+}
+
+.form__option + .form__option {
+  margin-top: - $global-spacing / 2;
+}
+
+/* Form option inline modifier */
+
+.form__option--inline {
+  display: inline-block;
+}
+
+.form__option--inline + .form__option--inline {
+  margin-left: $global-spacing;
+}
+
+
+/* Form custom options modifiers (radios and checkboxes)
+   ========================================================================== */
+
+.form__option--custom-radio,
+.form__option--custom-checkbox {
+  padding-left: $global-spacing * 2;
+
+  input {
+    @extend .visually-hidden;
+  }
+
+  .form__option__ui {
+    position: absolute;
+    top: 0;
+    left: 0;;
+    height: 1.5rem;
+    width: 1.5rem;
+    box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.16);
+    background: #fff;
+    transition: all 0.24s ease 0s;
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all 0.16s ease 0s;
+    }
+  }
+
+  &:focus,
+  &:active {
+    .form__option__ui {
+      box-shadow: inset 0 3px 0 0 rgba($base-color, 0.08), inset 0 0 0 1px rgba($base-color, 0.32);
+    }
+  }
+
+  input:checked ~ .form__option__ui:before {
+    opacity: 1;
+  }
+}
+
+.form__option--custom-radio {
+  .form__option__ui {
+    &, &:before {
+      border-radius: $full-border-radius;
+    }
+
+    &:before {
+      content: "";
+      height: 0.5rem;
+      width: 0.5rem;
+      background: rgba($base-color, 0.80);
+    }
+  }
+}
+
+.form__option--custom-checkbox {
+  .form__option__ui {
+    &, &:before {
+      border-radius: $base-border-radius;
+    }
+
+    &:before {
+      // @extend %oam-ds-icon-sm-tick;
+      color: rgba($base-color, 0.80);
+    }
+  }
+}
+
+/* Form misc
+   ========================================================================== */
+
+.form__help {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba($base-font-color, 0.64);
+  margin-top: $global-spacing / 2;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Form basics
+-------------------------------------------------- */
+
+form fieldset {
+  margin: 0 0 20px;
+  }
+form fieldset:last-child {
+  margin-bottom: 0;
+  }
+
+form fieldset label {
+  font:12px/20px 'Open Sans Bold', sans-serif;
+  display:block;
+  margin:0 0 5px;
+  }
+  .dark label {
+    color:#f0f0f0;
+    color:rgba(255,255,255,0.75);
+    }
+
+form fieldset label.inline { margin-bottom: 0;}
+
+input,
+select,
+button {
+  vertical-align:top;
+  }
+textarea,
+input[type=password],
+input[type=text],
+input[type=date],
+input[type=email],
+input[type=number] {
+  display:inline-block;
+  height:40px;
+  margin:0;
+  color:rgba(0,0,0,.5);
+  padding:10px;
+  -webkit-appearance:none;
+  }
+textarea.code,
+input.code,
+input[type=password].code,
+input[type=text].code,
+input[type=date].code,
+input[type=email].code,
+input[type=number].code {
+  font-family:Menlo, Bitstream Vera Sans Mono, Monaco, Consolas, monospace;
+  white-space: pre-wrap;
+  }
+textarea,
+input[type=password],
+input[type=text],
+input[type=date],
+input[type=email],
+input[type=number] {
+  background-color:#fff;
+  border:1px solid rgba(0,0,0,0.1);
+  -webkit-transition:border-color .05s;
+     -moz-transition:border-color .05s;
+      -ms-transition:border-color .05s;
+          transition:border-color .05s;
+  }
+  .dark textarea,
+  .dark input[type=password],
+  .dark input[type=text],
+  .dark input[type=date],
+  .dark input[type=email],
+  .dark input[type=number] {
+    background:#404040;
+    background:rgba(0,0,0,0.25);
+    border-color:#eee;
+    border-color:rgba(255,255,255,0.25);
+    color:#fff;
+    box-shadow:none;
+    }
+  textarea:focus,
+  input[type=password]:focus,
+  input[type=text]:focus,
+  input[type=date]:focus,
+  input[type=email]:focus,
+  input[type=number]:focus {
+    outline:thin dotted\8; /* ie8 below */
+    border-color:rgba(0,0,0,0.25);
+    color:#404040;
+    }
+    .dark textarea:focus,
+    .dark input[type=password]:focus,
+    .dark input[type=text]:focus,
+    .dark input[type=date]:focus,
+    .dark input[type=email]:focus,
+    .dark input[type=number]:focus {
+      border-color:rgba(255,255,255,0.75);
+      color:#fff;
+      }
+
+textarea:disabled,
+input[type=text]:disabled,
+input[type=date]:disabled,
+input[type=email]:disabled,
+input[type=number]:disabled,
+input[type=password]:disabled {
+  border-color:rgba(0,0,0,0.125);
+  color: rgba(0,0,0,0.5);
+}
+  .dark textarea:disabled,
+  .dark input[type='text']:disabled {
+    border-color:rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.5);
+  }
+
+textarea.short,
+input[type=password].short,
+input[type=text].short,
+input[type=date].short,
+input[type=email].short,
+input[type=number].short {
+  height: 30px;
+  padding:5px;
+  -webkit-appearance:none;
+  }
+  textarea.short { height: 60px;}
+
+textarea.stretch,
+input.stretch[type=text],
+input.stretch[type=email],
+input.stretch[type=number],
+input.stretch[type=password] { width:100%; }
+
+textarea.clean,
+input[type=password].clean,
+input[type=text].clean,
+input[type=date].clean,
+input[type=email].clean,
+input[type=number].clean,
+.dark textarea.clean,
+.dark input[type=password].clean,
+.dark input[type=text].clean,
+.dark input[type=date].clean,
+.dark input[type=email].clean,
+.dark input[type=number].clean {
+  border-width: 0;
+}
+
+textarea.clean:focus,
+input[type=password].clean:focus,
+input[type=text].clean:focus,
+input[type=date].clean:focus,
+input[type=email].clean:focus,
+input[type=number].clean:focus {
+  background-color: rgba(0,0,0,.05);
+}
+
+.dark textarea.clean:focus,
+.dark input[type=password].clean:focus,
+.dark input[type=text].clean:focus,
+.dark input[type=date].clean:focus,
+.dark input[type=email].clean:focus,
+.dark input[type=number].clean:focus {
+  background-color: rgba(0,0,0,.35);
+}
+
+/* Special Form Components */
+.with-icon {
+  position:relative;
+  }
+  .with-icon input[type=text],
+  .with-icon input[type=date],
+  .with-icon input[type=email],
+  .with-icon input[type=number] {
+    padding-left:35px;
+    }
+  .with-icon .icon {
+    position:absolute;
+    top:10px;
+    left:10px;
+    }
+
+.with-icon input[type=text],
+.with-icon input[type=date],
+.with-icon input[type=email],
+.with-icon input[type=number] { padding-left: 30px; }
+.with-icon .short ~ .icon { left:5px; top: 5px; }
+
+.with-icon-right {
+  position:relative;
+  }
+  .with-icon-right input[type=text],
+  .with-icon-right input[type=date],
+  .with-icon-right input[type=email],
+  .with-icon-right input[type=number] {
+    padding-right:35px;
+    }
+  .with-icon-right .icon {
+    position:absolute;
+    top:10px;
+    right:10px;
+    }
+
+.with-icon-right input[type=text],
+.with-icon-right input[type=date],
+.with-icon-right input[type=email],
+.with-icon-right input[type=number] {
+  padding-right: 30px;
+}
+
+.with-icon-right .short ~ .icon { right:5px; top: 5px;}
+
+textarea {
+  height:80px;
+  max-width:none;
+  overflow:auto;
+  resize:none;
+  }
+  textarea.resize { resize:both; }
+
+select {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  }
+
+input[type=range],
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  margin:0; padding:0; border:0;
+  }
+input[type=range] {
+  display:inline-block!important;
+  vertical-align:middle;
+  height:12px;
+  padding:0 2px;
+  border:2px solid transparent;
+  background:rgba(0,0,0,0.25);
+  min-width:100px;
+  overflow:hidden;
+  cursor:pointer;
+  }
+  input[type=range]::-ms-fill-upper { background:transparent; }
+  input[type=range]::-ms-fill-lower { background:rgba(255,255,255,0.25); }
+
+/* Browser thingies */
+input[type=range]::-moz-range-track { opacity:0; }
+input[type=range]::-ms-track        { opacity:0; }
+input[type=range]::-ms-tooltip      { display:none; }
+
+/* For whatever reason, these need to be defined
+ * on their own so dont group them */
+input[type=range]::-webkit-slider-thumb {
+  background:rgba(255,255,255,0.75);
+  height:12px; width:20px;
+  border-radius:3px;
+  cursor:ew-resize;
+  box-shadow:rgba(255,255,255,0.25) -1200px 0 0 1200px;
+  }
+input[type=range]::-ms-thumb {
+  margin:0;padding:0;border:0;
+  background:rgba(255,255,255,0.75);
+  height:12px; width:20px;
+  border-radius:3px;
+  cursor:ew-resize;
+  box-shadow:rgba(255,255,255,0.25) -1200px 0 0 1200px;
+  }
+input[type=range]::-moz-range-thumb {
+  margin:0;padding:0;border:0;
+  background:rgba(255,255,255,0.75);
+  height:12px; width:20px;
+  border-radius:3px;
+  cursor:ew-resize;
+  box-shadow:rgba(255,255,255,0.25) -1200px 0 0 1200px;
+  }
+
+input[type=range]:disabled::-moz-range-thumb { cursor: default;}
+input[type=range]:disabled::-ms-thumb { cursor: default;}
+input[type=range]:disabled::-webkit-slider-thumb { cursor: default;}
+input[type=range]:disabled { cursor: default; }

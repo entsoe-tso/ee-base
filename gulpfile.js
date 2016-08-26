@@ -85,6 +85,7 @@ gulp.task('copy:assets', function(done) {
     .pipe(gulp.dest('_site/assets'));
 });
 
+
 gulp.task('copy:css', function(done) {
   return gulp.src('.tmp/assets/styles/*')
     .pipe(gulp.dest('dist'));
@@ -100,7 +101,9 @@ gulp.task('copy:images', function(done) {
     .pipe(gulp.dest('dist'))
 });
 
+gulp.task('copy', ['copy:css', 'copy:fonts', 'copy:images'], function(done) {
 
+});
 
 
 // Build the jekyll website.

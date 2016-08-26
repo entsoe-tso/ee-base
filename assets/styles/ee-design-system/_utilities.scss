@@ -12,6 +12,7 @@ Details: http://www.positioniseverything.net/easyclearing.html
 
 /* Additional Utility Classes
 ------------------------------------------------------- */
+.dark {color:#fff;}
 .fr                           { float:right; }
 .fl                           { float:left; }
 .unfloat                      { float:none; }
@@ -131,3 +132,132 @@ img.inline, .inline           { display:inline-block; }
 .keyline-right {border-right: 1px solid $light-grey;}
 .keyline-left {border-left: 1px solid $light-grey;}
 .keyline-all {border: 1px solid $light-grey;}
+
+.visually-hidden {
+  border: 0 none;
+  clip: rect(0px, 0px, 0px, 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* Undo visually-hidden */
+
+.visually-hidden-undo {
+  position: inherit;
+  overflow: visible;
+  height: auto;
+  width: auto;
+  margin: auto;
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+
+.invisible {
+  visibility: hidden;
+}
+
+
+/* Unscrollable
+   ========================================================================== */
+
+.unscrollable-y {
+  overflow-y: hidden;
+}
+
+.unscrollable-x {
+  overflow-x: hidden;
+}
+
+/* Clearfix
+   ========================================================================== */
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+/* Disabled
+   ========================================================================== */
+
+.disabled {
+  opacity: 0.48;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Modals */
+.modal-content {
+  background:rgba(0,0,0,0.50);
+  position:fixed;
+  overflow: auto;
+  top:0;
+  left:0;
+  right:0;
+  opacity:0;
+  height: 0;
+  z-index:99999;
+  pointer-events: none;
+  }
+.modal-content.active {
+  height: auto;
+  bottom: 0;
+  opacity:1;
+  pointer-events: all;
+  }
+.modal-popup {
+  opacity:0;
+  position:absolute;
+  overflow-y:auto;
+  height:100%;
+  left:0;
+  right:0;
+  }
+.modal-content .modal-body {
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top:40px;
+  margin-left:auto;
+  margin-right:auto;
+  float:none;
+  }
+.modal-auth .sliding {
+  height:100%;
+  overflow-y:auto;
+  }
+.modal-auth .sliding,
+.modal-auth .sliding > * { width:100%; }
+
+/* Ensures layers modals stack correctly. */
+.modal-popup { z-index: 1; }
+
+/* Keeps sign in screen from scrolling based on sign up modal's height. */
+.modal-auth .sliding .active2 { overflow-y:hidden; }
+
+/* Hide older modals when younger modals are in dom. */
+.modal-popup:last-child { opacity:1; }
