@@ -94,6 +94,10 @@ gulp.task('copy:assets', function(done) {
     .pipe(gulp.dest('_site/assets'));
 });
 
+gulp.task('copy:assets1', function(done) {
+  return gulp.src('dist/**')
+    .pipe(gulp.dest('_site/assets'));
+});
 
 gulp.task('copy:css', function(done) {
   return gulp.src('.tmp/assets/styles/*')
@@ -165,14 +169,15 @@ gulp.task('javascript', function () {
       .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('.tmp/assets/scripts'))
-      .pipe(reload({stream: true}));
+      // .pipe(reload({stream: true}))
+      // .pipe(exit());
   }
 
   watcher
   .on('log', gutil.log)
   .on('update', bundler);
 
-  return bundler();
+  bundler();
 });
 
 // Vendor scripts. Basically all the dependencies in the package.js.
@@ -276,7 +281,7 @@ gulp.task('styles', function () {
 // Main build task
 // Builds the site. Destination --> _site
 gulp.task('build', function(done) {
-  runSequence('clean', ['jekyll', 'styles'], 'copy:assets', done);
+  runSequence('clean', ['jekyll', 'styles'], 'copy:all', 'copy:temp', 'copy:assets1', done);
 });
 
 function browserReload() {
@@ -284,6 +289,10 @@ function browserReload() {
     browserSync.reload();
   }
 }
+
+gulp.task('build:production', function(done) {
+  runSequence('copy:all', 'copy:temp', done);
+});
 
 
 // //////////////////////////////////////////////////////////////////////////////
@@ -294,6 +303,24 @@ function browserReload() {
 // To reduce build times the assets are compiles at the same time as jekyll
 // renders the site. Once the rendering has finished the assets are copied.
 gulp.task('copy:all', function(done) {
-  return gulp.src(['./assets/**/*', '!./assets/styles/**/*', '!./assets/icons/*'])
+  return gulp.src(
+    ['!**/*/main.js', './assets/**','!assets/{icons,icons/**}', 
+    '!./assets/styles/**/*'
+    
+    ])
     .pipe(gulp.dest('dist'))
+});
+
+gulp.task('copy:temp', function(done) {
+  return gulp.src(['.tmp/assets/**/*'])
+    .pipe(gulp.dest('dist'));
+    
+});
+
+
+gulp.task('default', ['clean', 'styles', 'javascript'], function () {
+  prodBuild = true;
+  gulp.start('build:production', function () {
+    return gulp.src('dist/**/*').pipe(exit())
+  });
 });

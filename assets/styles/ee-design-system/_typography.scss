@@ -253,6 +253,14 @@ h1 {
 
 h2 {
   @include heading(1.5rem);    // 24
+  &.fancy {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 40px;
+    letter-spacing: 2px;
+    line-height: 50px;
+    text-transform: uppercase;
+  }
 }
 
 h3 {

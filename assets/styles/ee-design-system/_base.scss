@@ -56,9 +56,9 @@ a {
   transition: opacity 0.24s ease 0s;
 }
 
-a:visited {
-  color: $link-color;
-}
+// a:visited {
+//   color: $link-color;
+// }
 
 a:hover {
   opacity: 0.64;

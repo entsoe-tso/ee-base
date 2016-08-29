@@ -6,3 +6,4 @@ kramdown:
   input: GFM
 exclude:         ['node_modules', 'assets/*.scss']
 source:          docs
+baseurl: '/ee-base'

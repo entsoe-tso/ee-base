@@ -246,6 +246,12 @@ label[for] {
   }
 }
 
+input[type="checkbox"] {
+  top: 0.35rem;
+  position: absolute;
+  left: 0;
+}
+
 .form__option:not(.form__option--inline) {
   display: table; // Hack-ish. Please fix me.
 }
@@ -361,13 +367,18 @@ form fieldset:last-child {
   }
 
 form fieldset label {
-  font:12px/20px 'Open Sans Bold', sans-serif;
+  font:13px/20px 'Open Sans Bold', sans-serif;
   display:block;
   margin:0 0 5px;
+  font-weight: 800;
   }
   .dark label {
     color:#f0f0f0;
     color:rgba(255,255,255,0.75);
+    }
+  .checkboxes label {
+    position: relative;
+    padding-left:1.5rem;
     }
 
 form fieldset label.inline { margin-bottom: 0;}

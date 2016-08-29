@@ -131,12 +131,11 @@ footer:
   {% endif %}
   
 
-
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" />
   <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/assets/styles/main.css">
  
   <!--[if IE 9]><link href='{{site.url}}/css/site-ie9.css' rel='stylesheet' /><![endif]-->
-  <link rel='shortcut icon' href='{{site.url}}/img/favicon.ico' type='image/x-icon' />
-  <link rel='alternate' type='application/rss+xml' title='RSS' href='{{site.url}}/blog/blog.rss' />
+  <link rel='shortcut icon' href='{{site.baseurl}}/assets/graphics/meta/favicon.ico' type='image/x-icon' />
 
   <!-- {% unless page.nomapboxjs %}
   <link href='{% if site.mapboxjsbase %}{{site.mapboxjsbase}}{% else %}https://api.tiles.mapbox.com/mapbox.js/{% if site.mapboxjs %}{{site.mapboxjs}}{% else %}v1.6.5{% endif %}{% endif %}/mapbox.css' rel='stylesheet' />
@@ -182,9 +181,9 @@ footer:
 <div class='{% unless page.options contains 'full' or layout.options contains 'full' %} limiter clearfix p4y{% endunless %} {% unless page.home %}prose{% endunless %}'>{{content}}</div>
 
 {% unless page.url contains '/hello/directions'  %}
-<div class='footer footer-in-docs clearfix contain hide-mobile noprint fill-light' data-swiftype-index='false'>
+<div class='footer footer-in-docs clearfix contain hide-mobile noprint fill-light'>
   <div class='limiter clearfix'>
-    <div class='footer-in-docs footer-cols-in-docs clearfix col12 pad8y small'>
+    <!-- <div class='footer-in-docs footer-cols-in-docs clearfix col12 pad8y small'>
       
     </div>
 
@@ -192,7 +191,7 @@ footer:
 
   <div class='limiter newsletter-copyright hide-in-docs clearfix'> 
     
-</div>
+</div> -->
 
 <div class='footer-in-docs terms-in-docs col12 center footer-copyright small p4 noprint fill-light contain' data-swiftype-index='false'>
   <a href='{{site.url}}/tos'>Terms</a> +
@@ -213,6 +212,7 @@ footer:
 <div id='modal-content' class='animate modal modal-content'></div>
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
 var $dropdownTriggers = $('.dropdown');
 var $dropdownArea = $('.main-subnav');
@@ -249,6 +249,19 @@ $dropdownZone.mouseover(function() {
   }, 300);
 });
 </script>
-
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '57c4678fc88d9036700270b7');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
 </body>
 </html>
