@@ -5,6 +5,7 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var reload = browserSync.reload;
 var watchify = require('watchify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
@@ -15,6 +16,12 @@ var notifier = require('node-notifier');
 var cp = require('child_process');
 var runSequence = require('run-sequence');
 var OAM_ADDONS = require('./gulp-addons');
+
+var YAML = require('yamljs');
+
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
+var exit = require('gulp-exit');
 
 // /////////////////////////////////////////////////////////////////////////////
 // --------------------------- Variables -------------------------------------//
@@ -31,6 +38,8 @@ function readPackage () {
   pkg = JSON.parse(fs.readFileSync('package.json'));
 }
 readPackage();
+
+var prodBuild = false;
 
 // /////////////////////////////////////////////////////////////////////////////
 // ------------------------- Callable tasks ----------------------------------//
@@ -88,7 +97,7 @@ gulp.task('copy:assets', function(done) {
 
 gulp.task('copy:css', function(done) {
   return gulp.src('.tmp/assets/styles/*')
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('copy:fonts', function(done) {
@@ -126,7 +135,7 @@ gulp.task('jekyll', function (done) {
 // main.js
 gulp.task('javascript', function () {
   var watcher = watchify(browserify({
-    entries: ['./sandbox/assets/scripts/main.js'],
+    entries: ['./assets/scripts/main.js'],
     debug: true,
     cache: {},
     packageCache: {},
@@ -144,6 +153,9 @@ gulp.task('javascript', function () {
           message: e.message
         });
         console.log('Javascript error:', e);
+        if (prodBuild) {
+          process.exit(1);
+        }
         // Allows the watch to continue.
         this.emit('end');
       })
@@ -178,7 +190,7 @@ gulp.task('vendorScripts', function () {
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('.tmp/assets/scripts/'))
+    .pipe(gulp.dest('.tmp/assets/scripts'))
     .pipe(reload({stream: true}));
 });
 
@@ -186,21 +198,22 @@ gulp.task('vendorScripts', function () {
 // ------------------------ Collecticon tasks --------------------------------//
 // -------------------- (Font generation related) ----------------------------//
 // ---------------------------------------------------------------------------//
+// -------------------- not using sandbox so not needed yet ------------------//
 // gulp.task('collecticons', function (done) {
 //   var args = [
 //     'node_modules/collecticons-processor/bin/collecticons.js',
 //     'compile',
-//     'sandbox/assets/graphics/collecticons/',
+//     'assets/graphics/collecticons/',
 //     '--font-embed',
-//     '--font-dest', 'sandbox/assets/fonts',
+//     '--font-dest', 'assets/fonts',
 //     '--font-name', 'Collecticons',
 //     '--font-types', 'woff',
 //     '--style-format', 'sass',
-//     '--style-dest', 'sandbox/assets/styles/',
+//     '--style-dest', 'app/assets/styles/',
 //     '--style-name', 'collecticons',
 //     '--class-name', 'collecticons',
-//     '--author-name', 'Development Seed',
-//     '--author-url', 'https://developmentseed.org/',
+//     '--author-name', 'MapLesotho',
+//     '--author-url', 'https://maplesotho.com/',
 //     '--no-preview'
 //   ];
 
@@ -212,27 +225,27 @@ gulp.task('vendorScripts', function () {
 // ------------------------- OAM icons tasks ---------------------------------//
 // -------------------- (Font generation related) ----------------------------//
 // ---------------------------------------------------------------------------//
-// gulp.task('oam:icons', function (done) {
-//   var args = [
-//     'node_modules/collecticons-processor/bin/collecticons.js',
-//     'compile',
-//     'assets/icons/',
-//     '--font-embed',
-//     '--font-dest', 'assets/fonts',
-//     '--font-name', 'OAM DS Icons',
-//     '--font-types', 'woff',
-//     '--style-format', 'sass',
-//     '--style-dest', 'assets/styles/oam-design-system',
-//     '--style-name', 'oam-ds-icons',
-//     '--class-name', 'oam-ds-icon',
-//     '--author-name', 'Development Seed',
-//     '--author-url', 'https://developmentseed.org/',
-//     '--no-preview'
-//   ];
+gulp.task('ee:icons', function (done) {
+  var args = [
+    'node_modules/collecticons-processor/bin/collecticons.js',
+    'compile',
+    'assets/icons/',
+    '--font-embed',
+    '--font-dest', 'assets/fonts',
+    '--font-name', 'ENTSO-E Icons',
+    '--font-types', 'woff',
+    '--style-format', 'sass',
+    '--style-dest', 'assets/styles/ee-design-system',
+    '--style-name', 'ee-icons',
+    '--class-name', 'ee-icon',
+    '--author-name', 'ENTSO-E',
+    '--author-url', 'https://www.entsoe.eu/',
+    '--no-preview'
+  ];
 
-//   return cp.spawn('node', args, {stdio: 'inherit'})
-//     .on('close', done);
-// });
+  return cp.spawn('node', args, {stdio: 'inherit'})
+    .on('close', done);
+});
 
 // //////////////////////////////////////////////////////////////////////////////
 // --------------------------- Helper tasks -----------------------------------//
@@ -257,7 +270,7 @@ gulp.task('styles', function () {
     }))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/assets/styles'))
-    // .pipe(reload({stream: true}));
+    .pipe(reload({stream: true}));
 });
 
 // Main build task
@@ -271,3 +284,16 @@ function browserReload() {
     browserSync.reload();
   }
 }
+
+
+// //////////////////////////////////////////////////////////////////////////////
+// ------------- Producing production ready versions --------------------------//
+// ----------------------------------------------------------------------------//
+
+// Copy from the .tmp to _site directory.
+// To reduce build times the assets are compiles at the same time as jekyll
+// renders the site. Once the rendering has finished the assets are copied.
+gulp.task('copy:all', function(done) {
+  return gulp.src(['./assets/**/*', '!./assets/styles/**/*', '!./assets/icons/*'])
+    .pipe(gulp.dest('dist'))
+});
