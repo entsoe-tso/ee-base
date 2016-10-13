@@ -30,6 +30,8 @@ var exit = require('gulp-exit');
 // The package.json
 var pkg;
 
+console.log("EE_ENV = ", process.env.EE_ENV)
+
 // /////////////////////////////////////////////////////////////////////////////
 // ------------------------- Helper functions --------------------------------//
 // ---------------------------------------------------------------------------//
@@ -122,7 +124,15 @@ gulp.task('copy', ['copy:css', 'copy:fonts', 'copy:images'], function(done) {
 // Build the jekyll website.
 gulp.task('jekyll', function (done) {
   var args = ['build'];
-  args.push('--config=_config.yml');
+  switch (process.env.EE_ENV) {
+    case 'development':
+      args.push('--config=_config-local.yml');
+      break;
+    case 'production':
+      args.push('--config=_config.yml');
+      break;
+  }
+  // args.push('--config=_config.yml');
   return cp.spawn('jekyll', args, {stdio: 'inherit'})
     .on('close', done);
 });
@@ -258,6 +268,28 @@ gulp.task('ee:icons', function (done) {
 
 gulp.task('styles', function () {
   return gulp.src('assets/styles/main.scss')
+    .pipe($.plumber(function (e) {
+      notifier.notify({
+        title: 'Oops! Sass errored:',
+        message: e.message
+      });
+      console.log('Sass error:', e.toString());
+      // Allows the watch to continue.
+      this.emit('end');
+    }))
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
+      outputStyle: 'expanded',
+      precision: 10,
+      includePaths: require('node-bourbon').with('node_modules/jeet/scss', 'assets/styles')
+    }))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('.tmp/assets/styles'))
+    .pipe(reload({stream: true}));
+});
+
+gulp.task('styles:sp-icons', function () {
+  return gulp.src('assets/styles/icons.scss')
     .pipe($.plumber(function (e) {
       notifier.notify({
         title: 'Oops! Sass errored:',

@@ -5,10 +5,10 @@
   "main": "gulp-addons.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "gulp oam:icons && gulp collecticons && gulp serve",
+    "serve": "gulp ee:icons && gulp serve",
     "ee-icons": "gulp ee:icons",
     "lint": "eslint assets/scripts --ext .js",
-    "build": "gulp"
+    "build": "gulp build"
   },
   "author": "Colin Broderick",
   "license": "ISC",

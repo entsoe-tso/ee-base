@@ -109,6 +109,18 @@
 .m3r, .margin3r {margin-right: 25%;}
 .m4r, .margin4r {margin-right: 33.3333333333%;}
 
+.space-right0  { margin-right:   5px;}
+.space-right1  { margin-right:  10px;}
+.space-right2  { margin-right:  20px;}
+.space-right3  { margin-right:  30px;}
+.space-right4  { margin-right:  40px;}
+.space-right8  { margin-right:  80px;}
+.space-right12 { margin-right: 120px;}
+.space-right16 { margin-right: 160px;}
+.space-right20 { margin-right: 200px;}
+.space-right24 { margin-right: 240px;}
+
+
 @include media(xsmall-only) {
   .m1, .m2, .m3, .m4, .margin-1, .margin-2, .margin-3, .margin-4 {
     margin-left: 0;
