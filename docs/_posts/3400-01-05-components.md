@@ -5,6 +5,8 @@ title: Components
 description: Reusable components, including buttons, alerts and more.
 ---
 
+
+
 ## Buttons
 
 ### Colors
@@ -160,5 +162,104 @@ description: Reusable components, including buttons, alerts and more.
   </fieldset>
 </form>
 {% endhighlight %}  
+  </div>
+</div>
+
+
+## Newsletter sign up
+
+Be careful using the snippet below when pasting onto sharepoint powered sites as it has a habit of stripping away the form post location.
+
+<div class="exhibit">
+  <div class="exhibit__content">
+   <div class="fill-yellow pad2 clearfix">
+     <div class="limiter clearfix">
+       <div class="col8" style="height:40px; padding-top: 4px; font-size: 1.2rem;">
+         <strong>GET THE MOST POWERFUL NEWSLETTER IN BRUSSELS</strong>
+       </div>
+       <div class="col4">
+          <form action="https://entsoe.us10.list-manage.com/subscribe/post?u=498429987654de03679e453a1&amp;id=da85e6735a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+            <div id="mc_embed_signup_scroll">
+  
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email" required="" />
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_498429987654de03679e453a1_da85e6735a" tabindex="-1" value="" /></div>
+              </div>
+              <!--End mc_embed_signup-->
+         </form>
+       </div>
+     </div>
+   </div>
+  </div>
+  <div class="exhibit__caption">
+  {% highlight html %}
+  <div class="fill-yellow pad2 clearfix">
+     <div class="limiter">
+       <div class="col8">
+         <strong>GET THE MOST POWERFUL NEWSLETTER IN BRUSSELS</strong>
+       </div>
+       <div class="col4">
+          <form action="https://entsoe.us10.list-manage.com/subscribe/post?u=498429987654de03679e453a1&amp;id=da85e6735a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+            <div id="mc_embed_signup_scroll">
+  
+              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email" required="" />
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_498429987654de03679e453a1_da85e6735a" tabindex="-1" value="" /></div>
+              </div>
+              <!--End mc_embed_signup-->
+         </form>
+       </div>
+     </div>
+  </div>
+  {% endhighlight %}
+  </div>
+</div>
+
+
+## Full row w. hero image
+
+
+
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <header>
+    <div class="hero keyline-bottom">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350" />
+    </div>
+    <div class="fill-grey pad4y">
+      <div class="limiter clearfix">
+        <div class="col6 pad1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</div>
+        <div class="col6 pad1">Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </div>
+    </div>
+    </header>
+  </div>
+  <div class="exhibit__caption">
+  {% highlight html %}
+  <header>
+    <div class="hero keyline-bottom">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350" />
+    </div>
+    <div class="fill-grey pad4y">
+      <div class="limiter clearfix">
+        <div class="col6 pad1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</div>
+        <div class="col6 pad1">Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </div>
+    </div>
+    </header>
+  {% endhighlight %}
   </div>
 </div>

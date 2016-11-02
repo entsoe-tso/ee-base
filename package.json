@@ -8,7 +8,8 @@
     "serve": "gulp ee:icons && gulp serve",
     "ee-icons": "gulp ee:icons",
     "lint": "eslint assets/scripts --ext .js",
-    "build": "gulp build"
+    "build": "gulp build",
+    "serve-local": "gulp ee:icons && EE_ENV='development' gulp serve"
   },
   "author": "Colin Broderick",
   "license": "ISC",
