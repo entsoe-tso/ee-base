@@ -356,3 +356,30 @@ gulp.task('default', ['clean', 'styles', 'javascript'], function () {
     return gulp.src('dist/**/*').pipe(exit())
   });
 });
+
+// Create the icons catalog for the showcase.
+gulp.task('ee-icons:catalog', function (done) {
+  let data = fs.readFileSync('./assets/styles/ee-design-system/_ee-icons.scss', 'utf8');
+  let regex = new RegExp('%(ee-icon-[a-z0-9-]+) {', 'mg');
+
+  let icons = [];
+  do {
+    let matches = regex.exec(data);
+    if (!matches) break;
+
+    icons.push(matches[1]);
+  } while (true);
+
+  fs.mkdir('docs/_data', (err, res) => {
+    if (err && err.code !== 'EEXIST') {
+      console.log('err', err);
+      if (prodBuild) {
+        process.exit(1);
+      }
+      this.emit('end');
+      return done();
+    }
+    fs.writeFileSync('docs/_data/ee-icons-catalog.json', JSON.stringify(icons));
+    done();
+  });
+});

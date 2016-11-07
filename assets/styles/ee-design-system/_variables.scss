@@ -5,7 +5,8 @@
 /* Colors
    ========================================================================== */
 
-$base-color: #1f3b45;                                   // Midnight Blue
+
+$base-color: #0a0a0a;                                   // #1f3b45 Midnight Blue
 $primary-color: #439ab4;                                // Boston Blue
 $secondary-color: #68c39f;                              // Silver Tree
 
@@ -33,6 +34,8 @@ $base-font-bold: 700;
 $base-font-weight: $base-font-light;
 $base-font-size: 1rem;
 $base-line-height: 1.5;
+
+$heading-font-family: 'Lato', sans-serif;
 
 $code-font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 

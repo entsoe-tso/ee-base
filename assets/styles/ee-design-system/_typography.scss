@@ -217,7 +217,7 @@ abbr[title] {
    ========================================================================== */
 
 .heading, h1, h2, h3, h4, h5, h6 {
-  font-family: $base-font-family;
+  font-family: $heading-font-family;
   font-weight: $base-font-bold;
   margin-top: 0;
   margin-bottom: $global-spacing;
@@ -279,6 +279,9 @@ h4, h5, h6 {
   @include heading(1rem);      // 16
 }
 
+
+
+
 /* Prose specific */
 
 .prose {
@@ -320,6 +323,13 @@ h4, h5, h6 {
     }
   }
 }
+
+h1.light, 
+h2.light, 
+h3.light, 
+h4.light,
+h5.light,
+h6.light {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 
 .dark a, a.dark, .dark a > code {
     color: rgba(255,255,255,.5);

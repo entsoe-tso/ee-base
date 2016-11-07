@@ -226,40 +226,178 @@ Be careful using the snippet below when pasting onto sharepoint powered sites as
 <div class="exhibit">
   <div class="exhibit__content">
     <header>
-    <div class="hero keyline-bottom">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350" />
-    </div>
-    <div class="fill-grey pad4y">
-      <div class="limiter clearfix">
-        <div class="col6 pad1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.</div>
-        <div class="col6 pad1">Duis aute irure dolor in reprehenderit in voluptate velit esse
+  <div class="hero keyline-bottom">
+    <h1 class="center pad8y">Heading</h1>
+  </div>
+  <div class="fill-grey pad4y">
+    <div class="limiter clearfix">
+      <div class="col6 pad1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.</div>
+      <div class="col6 pad1">Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        </div>
     </div>
-    </header>
+  </div>
+</header>
+
+<style type="text/css">
+  .hero {
+    background-image: url('https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350');
+    background-size: cover;
+    background-position: center center;
+  }
+</style>
   </div>
   <div class="exhibit__caption">
   {% highlight html %}
-  <header>
-    <div class="hero keyline-bottom">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350" />
-    </div>
-    <div class="fill-grey pad4y">
-      <div class="limiter clearfix">
-        <div class="col6 pad1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.</div>
-        <div class="col6 pad1">Duis aute irure dolor in reprehenderit in voluptate velit esse
+ <header>
+  <div class="hero keyline-bottom">
+    <h1 class="center pad8y">Heading</h1>
+  </div>
+  <div class="fill-grey pad4y">
+    <div class="limiter clearfix">
+      <div class="col6 pad1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.</div>
+      <div class="col6 pad1">Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        </div>
     </div>
-    </header>
+  </div>
+</header>
+
+<style type="text/css">
+  .hero {
+    background-image: url('https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350');
+    background-size: cover;
+    background-position: center center;
+  }
+</style>
+
   {% endhighlight %}
+  </div>
+</div>
+
+## Row Section
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <div class="fill-grey pad4y"> 
+      <div class="limiter space-bottom2 pad2">
+          <h2>Heading</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum quis neque a posuere. Duis eros quam, mattis non tempor eget, pellentesque vitae est. Suspendisse egestas bibendum purus eget rutrum. Pellentesque convallis metus vitae sem aliquet, sit amet ullamcorper sem tincidunt. Nam lacinia scelerisque enim vitae lacinia. Suspendisse in mi eget lacus efficitur finibus. Aliquam erat volutpat.</p>
+
+          <p>In vel congue erat. Quisque iaculis ultrices lacus. Vivamus ut iaculis nibh. Quisque sed elit leo. Quisque placerat sagittis mauris a gravida. Sed lectus leo, mollis et erat sit amet, accumsan bibendum ligula. Aenean odio arcu, tincidunt ut tincidunt a, blandit ut turpis. Nulla pharetra odio ut diam imperdiet ultrices.</p>
+
+          <a class="button" href="https://www.entsoe.eu/Pages/default.aspx">Action Call</a>
+
+          <a class="button" href="https://www.entsoe.eu/Pages/default.aspx">Action Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="exhibit__caption">
+    {% highlight html %}
+<div class="fill-grey pad4y"> 
+      <div class="limiter space-bottom2 pad2">
+          <h2>Heading</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum quis neque a posuere. Duis eros quam, mattis non tempor eget, pellentesque vitae est. Suspendisse egestas bibendum purus eget rutrum. Pellentesque convallis metus vitae sem aliquet, sit amet ullamcorper sem tincidunt. Nam lacinia scelerisque enim vitae lacinia. Suspendisse in mi eget lacus efficitur finibus. Aliquam erat volutpat.</p>
+
+          <p>In vel congue erat. Quisque iaculis ultrices lacus. Vivamus ut iaculis nibh. Quisque sed elit leo. Quisque placerat sagittis mauris a gravida. Sed lectus leo, mollis et erat sit amet, accumsan bibendum ligula. Aenean odio arcu, tincidunt ut tincidunt a, blandit ut turpis. Nulla pharetra odio ut diam imperdiet ultrices.</p>
+
+          <a class="button" href="https://www.entsoe.eu/Pages/default.aspx">Action Call</a>
+
+          <a class="button" href="https://www.entsoe.eu/Pages/default.aspx">Action Call</a>
+      </div>
+    </div>
+    {% endhighlight %}
+  </div>
+</div>
+
+<h2>4 block</h2>
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <div class="fill-grey">
+      <div class="limiter clearfix pad2y">
+      {% for i  in (1..3) %}
+        <div class="col4 pad1">
+          <div class="pad2 fill-blue dark">
+            <h2>Heading {{i}}</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+            <a href="#" class="button">Call to action</a>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="exhibit__caption">
+    {% highlight html %}
+    <div class="fill-grey">
+      <div class="limiter clearfix pad2y">
+      {% for i  in (1..3) %}
+        <div class="col4 pad1">
+          <div class="pad2 fill-blue dark">
+            <h2>Heading {{i}}</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p>
+            <a href="#" class="button">Call to action</a>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+    {% endhighlight %}
+  </div>
+</div>
+
+## Side pic
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <div class="fill-blue pad4y">
+      <div class="limiter clearfix" style="position: relative;">
+        <div class="col5 fill-white pad2">
+          <h2>I am a heading</h2>
+          <div class="pad2y">
+            <a href="" class="button inline">Call to action</a>
+            <a href="" class="button inline">Call to action</a>
+            <a href="" class="button inline">Call to action</a>
+          </div>
+        </div>
+
+        <div class="col7 pin-right">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="exhibit__caption">
+    {% highlight html %}
+     <div class="fill-blue pad4y">
+      <div class="limiter clearfix" style="position: relative;">
+        <div class="col5 fill-white pad2">
+          <h2>I am a heading</h2>
+          <div class="pad2y">
+            <a href="" class="button inline">Call to action</a>
+            <a href="" class="button inline">Call to action</a>
+            <a href="" class="button inline">Call to action</a>
+          </div>
+        </div>
+
+        <div class="col7 pin-right">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=80&txt=1052%C3%97350&w=1052&h=350">
+        </div>
+      </div>
+    </div>
+    {% endhighlight %}
   </div>
 </div>

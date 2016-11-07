@@ -36,6 +36,33 @@ A special appearance of heading is also posible via `.heading-alt`. Used in tabl
   </div>
 </div>
 
+### Light Headings
+You may have bodies of text where you would like to have less empahsis on the title or to enforce a more visible hierarchy of sections.
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <h1 class="light">This is a light h1 heading</h1>
+    <h2 class="light">This is a light h2 heading</h2>
+    <h3 class="light">This is a light h3 heading</h3>
+    <h4 class="light">This is a light h4 heading</h4>
+    <h5 class="light">This is a light h5 heading</h5>
+    <h6 class="light">This is a light h6 heading</h6>
+    <h6 class="light heading-alt">This an alt light heading</h6>
+  </div>
+
+  <div class="exhibit__caption">
+{% highlight html %}
+<h1 class="light">This is a light h1 heading</h1>
+    <h2 class="light">This is a light h2 heading</h2>
+    <h3 class="light">This is a light h3 heading</h3>
+    <h4 class="light">This is a light h4 heading</h4>
+    <h5 class="light">This is a light h5 heading</h5>
+    <h6 class="light">This is a light h6 heading</h6>
+    <h6 class="light heading-alt">This an alt light heading</h6>
+{% endhighlight %}                  
+  </div>
+</div>
+
 
 ### Blockquotes
 

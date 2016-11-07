@@ -21,6 +21,8 @@ Welcome to the ENTSO-E base web style guide.
   <div class="exhibit__caption">
 {% highlight html %}
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" />
+<link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+
 <link href='https://docs.entsoe.eu/ee-base/latest/styles/main.css' rel='stylesheet' />
 {% endhighlight %}
 include main.css in our HTML header.
