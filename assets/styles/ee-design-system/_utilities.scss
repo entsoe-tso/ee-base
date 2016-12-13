@@ -289,3 +289,12 @@ img.inline, .inline           { display:inline-block; }
     margin-bottom: 0;
   }
 }
+
+.exhibit__content > .button {
+    margin: 0 .5rem .5rem 0
+}
+
+.modal:before,.modal__inner {
+    display: inline-block;
+    vertical-align: middle
+}

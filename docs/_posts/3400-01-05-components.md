@@ -15,13 +15,17 @@ permalink: components/
 
 <div class="exhibit">
   <div class="exhibit__content">
-    <button class="button" type="button"><span>Achromic</span></button>
-    <button class="button fill-green" type="submit"><span>Base</span></button>
-    <a class="button fill-blue" role="button"><span>Primary</span></a>
-    <button class="button fill-grey" type="button"><span>Secondary</span></button>
-    <button class="button fill-red" type="button"><span>Base unbounded</span></button>
+    <button class="button button--achromic " type="button"><span>Achromic</span></button>
+    <button class="button button--base" type="submit"><span>Base</span></button>
+    <a class="button button--primary" role="button"><span>Primary</span></a>
+    <button class="button button--secondary" type="button"><span>Secondary</span></button>
+    <button class="button button--base-unbounded" type="button"><span>Base unbounded</span></button>
     <button class="button button--primary-unbounded" type="button"><span>Primary unbounded</span></button>
     <button class="button button--secondary-unbounded" type="button"><span>Secondary unbounded</span></button>
+    <a class="button button--base-bounded" role="button"><span>Base bounded</span></a>
+    <button class="button button--primary-bounded" type="button"><span>Primary bounded</span></button>
+    <button class="button button--secondary-bounded" type="button"><span>Secondary bounded</span></button>
+    <button class="button button--warning-bounded" type="button"><span>Warning bounded</span></button>
   </div>
 
   <div class="exhibit__caption">
@@ -33,7 +37,57 @@ permalink: components/
 <button class="button fill-red" type="button"><span>Base unbounded</span></button>
 <button class="button button--primary-unbounded" type="button"><span>Primary unbounded</span></button>
 <button class="button button--secondary-unbounded" type="button"><span>Secondary unbounded</span></button>
+<button class="button button--warning-bounded" type="button"><span>Warning bounded</span></button>
 {% endhighlight %}      
+  </div>
+</div>
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <button class="button button--base-bounded button--small" type="button"><span>Small</span></button>
+    <button class="button button--base-bounded button--medium" type="button"><span>Medium</span></button>
+    <button class="button button--base-bounded button--large" type="button"><span>Large</span></button>
+    <button class="button button--base-bounded button--xlarge" type="button"><span>Xlarge</span></button>
+  </div>
+  <div class="exhibit__caption">
+  {% highlight html %}
+    <button class="button button--base-bounded button--small" type="button"><span>Small</span></button>
+    <button class="button button--base-bounded button--medium" type="button"><span>Medium</span></button>
+    <button class="button button--base-bounded button--large" type="button"><span>Large</span></button>
+    <button class="button button--base-bounded button--xlarge" type="button"><span>Xlarge</span></button>
+  {% endhighlight %}
+  </div>
+</div>
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <button class="button button--base button--large button--block" type="button"><span>Block</span></button>
+    <button class="button button--base-bounded button--large button--semi-fluid" type="button"><span>Semi fluid</span></button>
+  </div>
+  <div class="exhibit__caption">
+  {% highlight html %}
+    <button class="button button--base button--large button--block" type="button"><span>Block</span></button>
+    <button class="button button--base-bounded button--large button--semi-fluid" type="button"><span>Semi fluid</span></button>
+  {% endhighlight %}
+  </div>
+</div>
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <div class="button-group button-group--horizontal" role="group" aria-label="...">
+      <button class="button button--base button--large button--active" type="button"><span>Left</span></button>
+      <button class="button button--base button--large" type="button"><span>Middle</span></button>
+      <button class="button button--base button--large" type="button"><span>Right</span></button>
+    </div>
+  </div>
+  <div class="exhibit__caption">
+  {% highlight html %}
+    <div class="button-group button-group--horizontal" role="group" aria-label="...">
+      <button class="button button--base button--large button--active" type="button"><span>Left</span></button>
+      <button class="button button--base button--large" type="button"><span>Middle</span></button>
+      <button class="button button--base button--large" type="button"><span>Right</span></button>
+    </div>
+  {% endhighlight %}
   </div>
 </div>
 

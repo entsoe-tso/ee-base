@@ -277,13 +277,13 @@ gulp.task('styles', function () {
       // Allows the watch to continue.
       this.emit('end');
     }))
-    .pipe($.sourcemaps.init())
+    // .pipe($.sourcemaps.init())
     .pipe($.sass({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: require('node-bourbon').with('node_modules/jeet/scss', 'assets/styles')
     }))
-    .pipe($.sourcemaps.write())
+    // .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/assets/styles'))
     .pipe(reload({stream: true}));
 });
@@ -336,9 +336,9 @@ gulp.task('build:production', function(done) {
 // renders the site. Once the rendering has finished the assets are copied.
 gulp.task('copy:all', function(done) {
   return gulp.src(
-    ['!**/*/main.js', './assets/**','!assets/{icons,icons/**}', 
+    ['!**/*/main.js', './assets/**','!assets/{icons,icons/**}',
     '!./assets/styles/**/*'
-    
+
     ])
     .pipe(gulp.dest('dist'))
 });
@@ -346,7 +346,7 @@ gulp.task('copy:all', function(done) {
 gulp.task('copy:temp', function(done) {
   return gulp.src(['.tmp/assets/**/*'])
     .pipe(gulp.dest('dist'));
-    
+
 });
 
 
