@@ -88,3 +88,55 @@
     z-index: 0;
   }
 }
+
+/* Brand: colors list
+   ========================================================================== */
+
+.colors-list {
+  @extend .clearfix;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    @include col(12/12);
+    margin-bottom: $global-spacing;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include media(small-up) {
+      @include col(6/12, $cycle: 2);
+    }
+
+    @include media(medium-up) {
+      @include col(4/12, $cycle: 3);
+
+      &:nth-last-child(2) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .exhibit {
+    overflow: hidden;
+  }
+
+  .exhibit__content {
+    padding: 0;
+  }
+}
+
+.swatch {
+  height: 8rem;
+  display: block;
+  box-shadow: inset 0 0 0 4px #fff;
+
+  &--base { background: $base-color; }
+  &--primary { background: $blue; }
+  &--secondary { background: $green-blue; }
+  &--danger { background: $red; }
+  &--warning { background: $orange; }
+  &--electric {background: $electric-yellow;}
+}
