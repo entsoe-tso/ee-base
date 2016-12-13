@@ -4,6 +4,7 @@ layout: docs
 category: CSS
 title: Components
 description: Reusable components, including buttons, alerts and more.
+permalink: components/
 ---
 
 

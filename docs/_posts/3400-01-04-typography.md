@@ -4,6 +4,8 @@ layout: docs
 category: CSS
 title: Typography
 description: Styles for displaying content with some of the most commonly used HTML elements, including typography, tables, code and more.
+
+permalink: typography/
 ---
 ## Typography
 
@@ -70,8 +72,8 @@ You may have bodies of text where you would like to have less empahsis on the ti
 <div class="exhibit">
   <div class="exhibit__content">
   <blockquote>
-    <p>As my fellow HTML5 Doctor, Oli Studholme has showed, people seldom quote exactly 
-    – so sacrosanctity of the quoted text isn’t a useful ideal – and in print etc, 
+    <p>As my fellow HTML5 Doctor, Oli Studholme has showed, people seldom quote exactly
+    – so sacrosanctity of the quoted text isn’t a useful ideal – and in print etc,
     citations almost always appear as part of the quotation – it’s highly conventional.</p>
     <footer>
       <cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
@@ -82,8 +84,8 @@ You may have bodies of text where you would like to have less empahsis on the ti
   <div class="exhibit__caption">
 {% highlight html %}
 <blockquote>
-  <p>As my fellow HTML5 Doctor, Oli Studholme has showed, people seldom quote exactly 
-  – so sacrosanctity of the quoted text isn’t a useful ideal – and in print etc, 
+  <p>As my fellow HTML5 Doctor, Oli Studholme has showed, people seldom quote exactly
+  – so sacrosanctity of the quoted text isn’t a useful ideal – and in print etc,
   citations almost always appear as part of the quotation – it’s highly conventional.</p>
   <footer>
     <cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
