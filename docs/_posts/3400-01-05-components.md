@@ -10,7 +10,7 @@ description: Reusable components, including buttons, alerts and more.
 
 ## Buttons
 
-### Colours
+### Button Colours
 
 <div class="exhibit">
   <div class="exhibit__content">

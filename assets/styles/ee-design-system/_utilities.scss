@@ -254,7 +254,7 @@ img.inline, .inline           { display:inline-block; }
 .exhibit__content {
   &--dark {
     @extend .antialiased;
-    background: $base-color;
+    background: $blue;
     color: #fff;
   }
 }

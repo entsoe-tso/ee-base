@@ -136,7 +136,100 @@
   &--base { background: $base-color; }
   &--primary { background: $blue; }
   &--secondary { background: $green-blue; }
+  &--cool { background: $cool-blue; }
   &--danger { background: $red; }
   &--warning { background: $orange; }
   &--electric {background: $electric-yellow;}
+}
+
+/* Design System / Brand: logo list
+   ========================================================================== */
+
+.logo-list {
+  @extend .clearfix;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    @include col(12/12);
+    margin-bottom: $global-spacing;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include media(small-up) {
+      @include col(6/12, $cycle: 2);
+
+      &:nth-last-child(2) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .exhibit {
+    overflow: hidden;
+  }
+}
+
+.logotype {
+  text-align: center;
+  display: block;
+  padding: $global-spacing;
+
+  img {
+    vertical-align: top;
+    height: auto;
+    max-width: 100%;
+  }
+
+  &--v-pos,
+  &--v-neg {
+    img {
+      width: 12rem;
+    }
+  }
+
+  &--h-pos,
+  &--h-neg {
+    img {
+      width: 16rem;
+    }
+  }
+
+  &--v-neg,
+  &--h-neg {
+    background: $blue;
+  }
+}
+/* Brand: typography list
+   ========================================================================== */
+
+.typography-list {
+  @extend .clearfix;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    @include col(3/12);
+    margin-bottom: 0;
+  }
+}
+
+.typecase {
+  font-size: 2rem;
+  line-height: 1;
+  text-align: center;
+  display: block;
+
+  &--light { font-weight: $base-font-light; }
+  &--normal { font-weight: $base-font-regular; }
+  &--bold { font-weight: $base-font-bold; }
+  &--heading { font-weight: $base-font-bold; font-family: $heading-font-family;}
+
+  @include media(small-up) {
+    font-size: 4rem;
+  }
 }
