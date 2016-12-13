@@ -4,6 +4,17 @@ layout: default
 home: true
 ---
 
+<div class="col4 pad1">
+<h4 class="uppercase">Get Started</h4>
+<ul >
+    {% assign posts = site.posts | sort: 'date', 'last' %}
+    {% for post in posts  %}
+    <li class="p0 keyline-bottom"><a class="pad2 block" href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+    {% endfor %}
+</ul>
+</div>
+<div class="col8" markdown="1">
+
 # Welcome
 
 Welcome to the ENTSO-E base web style guide.
@@ -29,9 +40,4 @@ include main.css in our HTML header.
   </div>
 </div>
 
-<ul>
-    {% assign posts = site.posts | sort: 'date', 'last' %}
-    {% for post in posts  %}
-    <li class="p2y keyline-bottom"><a class="pad2 block" href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
-    {% endfor %}
-</ul>
+</div>

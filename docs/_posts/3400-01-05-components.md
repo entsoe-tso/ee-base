@@ -1,4 +1,5 @@
 ---
+nav: true
 layout: docs
 category: CSS
 title: Components
@@ -9,7 +10,7 @@ description: Reusable components, including buttons, alerts and more.
 
 ## Buttons
 
-### Colors
+### Colours
 
 <div class="exhibit">
   <div class="exhibit__content">
@@ -180,7 +181,7 @@ Be careful using the snippet below when pasting onto sharepoint powered sites as
        <div class="col4">
           <form action="https://entsoe.us10.list-manage.com/subscribe/post?u=498429987654de03679e453a1&amp;id=da85e6735a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
             <div id="mc_embed_signup_scroll">
-  
+
               <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email" required="" />
               <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -202,7 +203,7 @@ Be careful using the snippet below when pasting onto sharepoint powered sites as
        <div class="col4">
           <form action="https://entsoe.us10.list-manage.com/subscribe/post?u=498429987654de03679e453a1&amp;id=da85e6735a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
             <div id="mc_embed_signup_scroll">
-  
+
               <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email" required="" />
               <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -285,7 +286,7 @@ Be careful using the snippet below when pasting onto sharepoint powered sites as
 
 <div class="exhibit">
   <div class="exhibit__content">
-    <div class="fill-grey pad4y"> 
+    <div class="fill-grey pad4y">
       <div class="limiter space-bottom2 pad2">
           <h2>Heading</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum quis neque a posuere. Duis eros quam, mattis non tempor eget, pellentesque vitae est. Suspendisse egestas bibendum purus eget rutrum. Pellentesque convallis metus vitae sem aliquet, sit amet ullamcorper sem tincidunt. Nam lacinia scelerisque enim vitae lacinia. Suspendisse in mi eget lacus efficitur finibus. Aliquam erat volutpat.</p>
@@ -300,7 +301,7 @@ Be careful using the snippet below when pasting onto sharepoint powered sites as
   </div>
   <div class="exhibit__caption">
     {% highlight html %}
-<div class="fill-grey pad4y"> 
+<div class="fill-grey pad4y">
       <div class="limiter space-bottom2 pad2">
           <h2>Heading</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum quis neque a posuere. Duis eros quam, mattis non tempor eget, pellentesque vitae est. Suspendisse egestas bibendum purus eget rutrum. Pellentesque convallis metus vitae sem aliquet, sit amet ullamcorper sem tincidunt. Nam lacinia scelerisque enim vitae lacinia. Suspendisse in mi eget lacus efficitur finibus. Aliquam erat volutpat.</p>
@@ -399,5 +400,13 @@ Be careful using the snippet below when pasting onto sharepoint powered sites as
       </div>
     </div>
     {% endhighlight %}
+  </div>
+</div>
+
+
+## Modal
+<div class="exhibit">
+  <div class="exhibit__content">
+    <div data-hook='react:modal'></div>
   </div>
 </div>

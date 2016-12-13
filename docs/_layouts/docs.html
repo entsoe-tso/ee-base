@@ -2,4 +2,39 @@
 layout: default
 ---
 
+
+{% if nav == empty %}
+  {% assign asided = false %}
+{% else %}
+  {% capture asided %}
+  <div class="col3 pad1">
+    <h4 class="uppercase">Get Started</h4>
+    <ul class="side-nav">
+        {% assign posts = site.posts | sort: 'date', 'last' %}
+        {% for post in posts  %}
+        {% assign klass = "" %}
+        {% if page.url == post.url %}
+          {% assign klass = "active" %}
+        {% endif %}
+        <li class="p0 keyline-bottom"><a class="pad2 block {{ klass }}" href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+        {% endfor %}
+    </ul>
+  </div>
+  {% endcapture %}
+{% endif %}
+
+
+{% if asided %}
+  {{ asided }}
+{% endif %}
+
+{% if asided %}
+<div class="col9 pad1">
+{% else %}
+<div class="clearfix">
+{% endif %}
+
 {{content}}
+</div>
+
+

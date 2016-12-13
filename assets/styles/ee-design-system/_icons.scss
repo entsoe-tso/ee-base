@@ -1,0 +1,51 @@
+// ICONS FOR VARIOUS THINGS
+// next and previous links
+.icon {
+  &.twitter {
+    &:before {
+      margin-right: 0.25rem;
+      @extend %ee-icon-twitter;
+    }
+  }
+  &.search {
+    &:before {
+      margin-right: 0.25rem;
+      @extend %ee-icon-magnifier-right;
+    }
+  }
+
+  &.facebook {
+    &:before {
+      margin-right: 0.25rem;
+      @extend %ee-icon-facebook;
+    }
+  }
+
+  &.edit {
+    &:before {
+      margin-right: 0.25rem;
+      @extend %ee-icon-pencil;
+    }
+  }
+
+  &.prev {
+    &:before {
+      margin-right: 0.25rem;
+      @extend %ee-icon-sm-chevron-left;
+    }
+  }
+
+  &.next {
+    &:after {
+      margin-right: 0.25rem;
+      @extend %ee-icon-sm-chevron-right;
+    }
+  }
+
+  &.all {
+    &:before {
+      margin-right: 0.25rem;
+      @extend %ee-icon-list;
+    }
+  }
+}

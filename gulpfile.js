@@ -47,7 +47,7 @@ var prodBuild = false;
 // ------------------------- Callable tasks ----------------------------------//
 // ---------------------------------------------------------------------------//
 
-gulp.task('serve', ['build'], function () {
+gulp.task('serve', ['build', 'vendorScripts', 'javascript'], function () {
   browserSync({
     port: 3000,
     server: {
@@ -149,7 +149,7 @@ gulp.task('jekyll', function (done) {
 // main.js
 gulp.task('javascript', function () {
   var watcher = watchify(browserify({
-    entries: ['./assets/scripts/main.js'],
+    entries: ['./docs/assets/scripts/main.js'],
     debug: true,
     cache: {},
     packageCache: {},
@@ -205,7 +205,7 @@ gulp.task('vendorScripts', function () {
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('.tmp/assets/scripts'))
+    .pipe(gulp.dest('.tmp/assets/scripts/'))
     .pipe(reload({stream: true}));
 });
 

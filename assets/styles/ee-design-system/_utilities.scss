@@ -211,56 +211,7 @@ img.inline, .inline           { display:inline-block; }
   cursor: not-allowed;
 }
 
-/* Modals */
-.modal-content {
-  background:rgba(0,0,0,0.50);
-  position:fixed;
-  overflow: auto;
-  top:0;
-  left:0;
-  right:0;
-  opacity:0;
-  height: 0;
-  z-index:99999;
-  pointer-events: none;
-  }
-.modal-content.active {
-  height: auto;
-  bottom: 0;
-  opacity:1;
-  pointer-events: all;
-  }
-.modal-popup {
-  opacity:0;
-  position:absolute;
-  overflow-y:auto;
-  height:100%;
-  left:0;
-  right:0;
-  }
-.modal-content .modal-body {
-  border-radius: 3px;
-  overflow: hidden;
-  margin-top:40px;
-  margin-left:auto;
-  margin-right:auto;
-  float:none;
-  }
-.modal-auth .sliding {
-  height:100%;
-  overflow-y:auto;
-  }
-.modal-auth .sliding,
-.modal-auth .sliding > * { width:100%; }
 
-/* Ensures layers modals stack correctly. */
-.modal-popup { z-index: 1; }
-
-/* Keeps sign in screen from scrolling based on sign up modal's height. */
-.modal-auth .sliding .active2 { overflow-y:hidden; }
-
-/* Hide older modals when younger modals are in dom. */
-.modal-popup:last-child { opacity:1; }
 
 
 /* for the docs styles */

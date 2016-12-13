@@ -346,3 +346,40 @@ a.prev, a.next, a.all {
 .dark .button:disabled:hover {
   background:rgba(255,255,255,.05);
   }
+
+.button--medium,
+.button-group--medium .button {
+  line-height: 1.5rem;
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  min-width: 2rem;
+}
+
+/* Base Unbounded */
+
+.button--base-unbounded {
+  @include button-variation("unbounded", null, $base-color);
+}
+
+/* Achromic Unbounded */
+
+.button--achromic-unbounded {
+  @include button-variation("unbounded", null, #fff);
+}
+
+/* Button contaning icons & icons modifiers
+   ========================================================================== */
+
+.button--text-hidden {
+  &::before,
+  &::after {
+    margin: 0;
+  }
+  > *:not([class^="ee-icon-"]):not([class*=" ee-icon-"]):not([class^="collecticons-"]):not([class*=" collecticons-"]) {
+    @extend .visually-hidden;
+  }
+  :not(.button-group) & {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
