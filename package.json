@@ -9,7 +9,9 @@
     "ee-icons": "gulp ee:icons",
     "lint": "eslint assets/scripts --ext .js",
     "build": "gulp build",
-    "serve-local": "gulp ee:icons && EE_ENV='development' gulp serve"
+    "dist": "gulp",
+    "serve-local": "gulp ee:icons && EE_ENV='development' gulp serve",
+    "icon-cat": "gulp ee-icons:catalog"
   },
   "author": "Colin Broderick",
   "license": "ISC",
