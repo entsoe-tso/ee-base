@@ -29,7 +29,7 @@
   @include media(medium-up) {
     font-size: $prose-resp-font-size;
     line-height: $prose-resp-line-height;
-  
+
     > * {
       margin-bottom: $prose-resp-font-size * $prose-resp-line-height; // same as line-height
     }
@@ -272,7 +272,7 @@ h3 {
   letter-spacing:2px;
   line-height:40px;
   text-transform: uppercase;
-  
+
 }
 
 h4, h5, h6 {
@@ -310,7 +310,7 @@ h4, h5, h6 {
   > h4,
   > h5,
   > h6 { @include heading(1rem, xlarge-up); }               // 16, 20, 24, 28
-  
+
 
   @include media(medium-up) {
     > h1:not(:first-child),
@@ -324,13 +324,25 @@ h4, h5, h6 {
   }
 }
 
-h1.light, 
-h2.light, 
-h3.light, 
+h1.light,
+h2.light,
+h3.light,
 h4.light,
 h5.light,
 h6.light {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 
 .dark a, a.dark, .dark a > code {
     color: rgba(255,255,255,.5);
+}
+
+/* Prose specific ANCHORS */
+.layout-content.prose {
+  p a, li a {
+    border-bottom: .08em solid rgba(0,0,0,.1);
+    padding-bottom: .08em;
+  }
+
+  a:hover {
+    border-bottom: .08em solid $link-color;
+  }
 }

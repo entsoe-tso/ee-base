@@ -233,3 +233,120 @@
     font-size: 4rem;
   }
 }
+
+/* Global Nav
+   ========================================================================== */
+
+.toggle-menu {
+ position: absolute;
+ top: 0.5rem;
+ right: $global-spacing / 4;
+ margin: 0;
+
+ a {
+   @extend .button, .button--base-unbounded, .button--medium, .button--text-hidden;
+   vertical-align: top;
+
+   &:before {
+     @extend %ee-icon-hamburger-menu;
+   }
+
+   @include media(medium-up) {
+     &:before {
+       font-size: 1.5rem;
+     }
+   }
+ }
+
+ @include media(small-up) {
+   right: $global-spacing * 1.5;
+ }
+
+ @include media(medium-up) {
+   top: 1.5rem;
+ }
+
+ @include media(large-up) {
+   display: none;
+ }
+}
+
+.menu-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  clear: both;
+  background: #fff;
+  padding: $global-spacing;
+  box-shadow: 0 4px 12px 0 $base-alpha-color, 0 1px 0 0 $base-alpha-color;
+
+  /* Animation */
+
+  margin-top: - $global-spacing;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.16s ease 0s, margin 0.16s ease 0s, visibility 0.16s linear 0s;
+
+  &.menu-wrapper--open {
+    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include media(small-up) {
+    padding: $global-spacing ($global-spacing * 2);
+  }
+
+  @include media(large-up) {
+    position: initial;
+    float: left;
+    width: auto;
+    margin-top: 0;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.toc {
+  font-size: 14px;
+  max-width: 300px;
+  ul.nav {
+    list-style: none;
+    margin-left: 0;
+  }
+  li.space-top1 {
+    margin-top:15px;
+  }
+  li a {
+    border-left: 3px solid  transparent;
+  }
+  li.active a {
+    background-color: #ececec;
+    border-color: #4ea0aa;
+  }
+
+  .h3 {
+    padding-left: 15px;
+  }
+}
+.affix {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+}
+
+.include-page-contents {
+  .page-contents {
+     @include col(3/12)
+     padding: ($global-spacing * 4) 0;
+  }
+
+  .page-content {
+     @include col(12/12)
+     padding: ($global-spacing * 4) 0;
+  }
+}

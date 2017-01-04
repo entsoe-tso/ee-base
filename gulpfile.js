@@ -160,7 +160,7 @@ gulp.task('javascript', function () {
     if (pkg.dependencies) {
       watcher.external(Object.keys(pkg.dependencies));
     }
-    return watcher.bundle()
+    watcher.bundle()
       .on('error', function (e) {
         notifier.notify({
           title: 'Oops! Browserify errored:',
@@ -179,7 +179,8 @@ gulp.task('javascript', function () {
       .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('.tmp/assets/scripts'))
-      // .pipe(reload({stream: true}))
+      // .pipe(exit());
+      .pipe(reload({stream: true}))
       // .pipe(exit());
   }
 
@@ -199,13 +200,14 @@ gulp.task('vendorScripts', function () {
     debug: true,
     require: pkg.dependencies ? Object.keys(pkg.dependencies) : []
   });
-  return vb.bundle()
+  vb.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source('vendor.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('.tmp/assets/scripts/'))
+    // .pipe(exit());
     .pipe(reload({stream: true}));
 });
 
@@ -313,7 +315,7 @@ gulp.task('styles:sp-icons', function () {
 // Main build task
 // Builds the site. Destination --> _site
 gulp.task('build', function(done) {
-  runSequence('clean', ['jekyll', 'styles'], 'copy:all', 'copy:temp', 'copy:assets1', done);
+  runSequence('clean', ['javascript', 'vendorScripts','jekyll', 'styles'], 'copy:all', 'copy:temp', 'copy:assets1', done);
 });
 
 function browserReload() {
