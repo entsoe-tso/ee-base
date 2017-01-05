@@ -273,9 +273,11 @@
 
 .menu-wrapper {
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
+  top: 1;
+  z-index: 1;
+  right: 0;
+  width: auto;
+  height: 100vh;
   clear: both;
   background: #fff;
   padding: $global-spacing;
@@ -289,6 +291,7 @@
   transition: opacity 0.16s ease 0s, margin 0.16s ease 0s, visibility 0.16s linear 0s;
 
   &.menu-wrapper--open {
+    top: 100%;
     margin-top: 0;
     opacity: 1;
     visibility: visible;
@@ -302,6 +305,7 @@
     position: initial;
     float: left;
     width: auto;
+    height: auto;
     margin-top: 0;
     background: none;
     box-shadow: none;
@@ -310,6 +314,7 @@
     visibility: visible;
   }
 }
+
 
 .toc {
   font-size: 14px;

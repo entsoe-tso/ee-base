@@ -337,6 +337,19 @@ h6.light {font-family: 'Open Sans', sans-serif; font-weight: 300;}
 
 /* Prose specific ANCHORS */
 .layout-content.prose {
+  .button, .button:hover {
+    border-bottom: 0;
+  }
+  .button, .button--small {
+    padding: 0.125rem 0.5rem;
+  }
+
+  .button--medium {
+    padding: 0.25rem 0.75rem;
+  }
+  .button--large {
+    padding: 0.5rem 1rem;
+  }
   p a, li a {
     border-bottom: .08em solid rgba(0,0,0,.1);
     padding-bottom: .08em;
