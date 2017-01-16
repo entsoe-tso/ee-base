@@ -269,7 +269,7 @@ gulp.task('ee:icons', function (done) {
 // ----------------------------------------------------------------------------//
 
 gulp.task('styles', function () {
-  return gulp.src('assets/styles/main.scss')
+  return gulp.src('docs/assets/styles/main.scss')
     .pipe($.plumber(function (e) {
       notifier.notify({
         title: 'Oops! Sass errored:',
