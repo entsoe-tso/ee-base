@@ -99,7 +99,7 @@
   padding: 0;
 
   li {
-    @include col(12/12);
+    @include column(12/12);
     margin-bottom: $global-spacing;
 
     &:last-child {
@@ -107,11 +107,11 @@
     }
 
     @include media(small-up) {
-      @include col(6/12, $cycle: 2);
+      @include column(6/12, $cycle: 2);
     }
 
     @include media(medium-up) {
-      @include col(4/12, $cycle: 3);
+      @include column(4/12, $cycle: 3);
 
       &:nth-last-child(2) {
         margin-bottom: 0;
@@ -152,7 +152,7 @@
   padding: 0;
 
   li {
-    @include col(12/12);
+    @include column(12/12);
     margin-bottom: $global-spacing;
 
     &:last-child {
@@ -160,7 +160,7 @@
     }
 
     @include media(small-up) {
-      @include col(6/12, $cycle: 2);
+      @include column(6/12, $cycle: 2);
 
       &:nth-last-child(2) {
         margin-bottom: 0;
@@ -213,7 +213,7 @@
   padding: 0;
 
   li {
-    @include col(3/12);
+    @include column(3/12);
     margin-bottom: 0;
   }
 }
@@ -346,12 +346,12 @@
 
 .include-page-contents {
   .page-contents {
-     @include col(3/12)
+     @include column(3/12)
      padding: ($global-spacing * 4) 0;
   }
 
   .page-content {
-     @include col(12/12)
+     @include column(12/12)
      padding: ($global-spacing * 4) 0;
   }
 }

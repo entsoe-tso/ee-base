@@ -184,7 +184,7 @@
 #projects {
   @extend .clearfix;
   .card {
-    @include col(12/12);
+    @include column(12/12);
     margin-top: 2rem;
 
     &:first-child {
@@ -192,7 +192,7 @@
     }
 
     @include media(large-up) {
-      @include col(6/12, $cycle: 2);
+      @include column(6/12, $cycle: 2);
 
       &:nth-child(2) {
         margin-top: 0;
@@ -204,12 +204,12 @@
 #nc-families {
   @extend .clearfix;
   .card {
-    @include col(12/12);
+    @include column(12/12);
 
     margin-top: 2rem;
 
     @include media(large-up) {
-      @include col(4/12, $cycle: 3);
+      @include column(4/12, $cycle: 3);
     }
     .card__contents {
       min-height: 201px;
