@@ -209,7 +209,7 @@
     margin-top: 2rem;
 
     @include media(large-up) {
-      @include column(4/12, $cycle: 3);
+      @include column(4/12);
     }
     .card__contents {
       min-height: 201px;

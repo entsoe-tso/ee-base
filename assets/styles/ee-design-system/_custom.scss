@@ -355,3 +355,21 @@
      padding: ($global-spacing * 4) 0;
   }
 }
+
+
+/* Homepage other section....
+   ========================================================================== */
+
+.homeOther {
+  @extend .clearfix;
+
+  &__section {
+    @include column(12/12);
+    
+    @include media(large-up) {
+      @include column(4/12);
+    }
+
+  }
+
+}
