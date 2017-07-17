@@ -183,6 +183,7 @@
 
 #projects {
   @extend .clearfix;
+  
   .card {
     @include column(12/12);
     margin-top: 2rem;
