@@ -1,0 +1,9 @@
+# Site settings
+title:           ENTSO_E - Sandbox
+future:          true
+markdown:        kramdown
+kramdown:
+  input: GFM
+exclude:         ['node_modules', 'assets/*.scss']
+source:          docs
+baseurl: ''
