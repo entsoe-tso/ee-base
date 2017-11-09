@@ -15,28 +15,35 @@ permalink: components/
 
 <div class="exhibit">
   <div class="exhibit__content">
-    <button class="button button--achromic " type="button"><span>Achromic</span></button>
-    <button class="button button--base" type="submit"><span>Base</span></button>
     <a class="button button--primary" role="button"><span>Primary</span></a>
+    <button class="button button--base" type="submit"><span>Base</span></button>
+    <button class="button button--achromic " type="button"><span>Achromic</span></button>
     <button class="button button--secondary" type="button"><span>Secondary</span></button>
-    <button class="button button--base-unbounded" type="button"><span>Base unbounded</span></button>
-    <button class="button button--primary-unbounded" type="button"><span>Primary unbounded</span></button>
-    <button class="button button--secondary-unbounded" type="button"><span>Secondary unbounded</span></button>
-    <a class="button button--base-bounded" role="button"><span>Base bounded</span></a>
+    <br />
+    <a class="button button--primary-unbounded">Primary unbounded</a>
+    <a class="button button--base-unbounded">Base unbounded</a>
+    <a class="button button--secondary-unbounded">Secondary unbounded</a>
+    <br />
     <button class="button button--primary-bounded" type="button"><span>Primary bounded</span></button>
+    <a class="button button--base-bounded" role="button"><span>Base bounded</span></a>
     <button class="button button--secondary-bounded" type="button"><span>Secondary bounded</span></button>
     <button class="button button--warning-bounded" type="button"><span>Warning bounded</span></button>
   </div>
 
   <div class="exhibit__caption">
 {% highlight html %}
-<button class="button" type="button"><span>Achromic</span></button>
-<button class="button fill-green" type="submit"><span>Base</span></button>
-<a class="button fill-blue" role="button"><span>Primary</span></a>
-<button class="button fill-grey" type="button"><span>Secondary</span></button>
-<button class="button fill-red" type="button"><span>Base unbounded</span></button>
-<button class="button button--primary-unbounded" type="button"><span>Primary unbounded</span></button>
-<button class="button button--secondary-unbounded" type="button"><span>Secondary unbounded</span></button>
+<a class="button button--primary" role="button"><span>Primary</span></a>
+<button class="button button--base" type="submit"><span>Base</span></button>
+<button class="button button--achromic " type="button"><span>Achromic</span></button>
+<button class="button button--secondary" type="button"><span>Secondary</span></button>
+
+<a class="button button--primary-unbounded">Primary unbounded</a>
+<a class="button button--base-unbounded">Base unbounded</a>
+<a class="button button--secondary-unbounded">Secondary unbounded</a>
+
+<button class="button button--primary-bounded" type="button"><span>Primary bounded</span></button>
+<a class="button button--base-bounded" role="button"><span>Base bounded</span></a>
+<button class="button button--secondary-bounded" type="button"><span>Secondary bounded</span></button>
 <button class="button button--warning-bounded" type="button"><span>Warning bounded</span></button>
 {% endhighlight %}      
   </div>
@@ -221,63 +228,127 @@ permalink: components/
 
   <div class="exhibit__caption">
 {% highlight html %}
-<form class="form">
-  <fieldset class="form__fieldset">
-    <legend class="form__legend">Fieldset legend 1</legend>
-    <div class="form__group">
-      <label class="form__label" for="form-name">Input text</label>
-      <input type="text" class="form__control form__control--medium" id="form-name" name="form-name" placeholder="This is a placeholder" />
-    </div>
-    <div class="form__group">
-      <label class="form__label" for="form-email">Input email</label>
-      <input type="email" class="form__control form__control--medium" id="form-email" name="form-email" placeholder="This is a placeholder" />
-      <div class="form__help">
-        <p>This is some help text.</p>
-      </div>
-    </div>
-    <div class="form__group">
-      <label class="form__label">Checkboxes</label>
-      <label class="form__option">
-        <input type="checkbox" name="form-checkbox" id="form-checkbox-1" value="Checkbox 1" /> Checkbox 1
-      </label>
-      <label class="form__option">
-        <input type="checkbox" name="form-checkbox" value="form-checkbox-2" /> Checkbox 2
-      </label>
-      <label class="form__option">
-        <input type="checkbox" name="form-checkbox" value="form-checkbox-3" /> Checkbox 3
-      </label>
-    </div>
-  </fieldset>
-  <fieldset class="form__fieldset">
-    <legend class="form__legend">Fieldset legend 2</legend>
-    <div class="form__group">
-      <label class="form__label" for="form-select-1">Select</label>
-      <select class="form__control form__control--medium" id="form-select-1">
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-        <option>Option 4</option>
-      </select>
-    </div>
-    <div class="form__group">
-      <label class="form__label" for="form-file-1">File input</label>
-      <input type="file" class="form__control" id="form-file-1" />
-    </div>
-    <div class="form__group">
-      <label class="form__label" for="form-textarea-1">Textarea</label>
-      <textarea class="form__control" id="form-textarea-1" rows="4" placeholder="This is a placeholder"></textarea>
-    </div>
-    <div class="form__group">
-      <label class="form__label">Radios (inline)</label>
-      <label class="form__option form__option--inline">
-        <input type="radio" name="form-radio" id="form-radio-1" value="Radio 1" checked /> Radio 1
-      </label>
-      <label class="form__option form__option--inline">
-        <input type="radio" name="form-radio" id="form-radio-2" value="Radio 2" /> Radio 2
-      </label>
-    </div>
-  </fieldset>
-</form>
+<div class="exhibit">
+  <div class="exhibit__content">
+    <form class="form">
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">Fieldset legend 1</legend>
+
+        <div class="form__group">
+          <label class="form__label" for="form-name">Input text</label>
+          <input type="text" class="form__control form__control--medium" id="form-name" name="form-name" placeholder="This is a placeholder" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-email">Input email</label>
+          <input type="email" class="form__control form__control--medium" id="form-email" name="form-email" placeholder="This is a placeholder" />
+          <div class="form__help">
+            <p>This is some help text.</p>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">Radio options (custom)</label>
+
+          <label class="form__option form__option--inline form__option--custom-radio">
+            <input type="radio" name="form-radio" id="form-radio-1" value="Radio 1" checked />
+            <span class="form__option__text">Radio 1</span>
+            <span class="form__option__ui"></span>
+          </label>
+          <label class="form__option form__option--inline form__option--custom-radio">
+            <input type="radio" name="form-radio" id="form-radio-2" value="Radio 2" />
+            <span class="form__option__text">Radio 2</span>
+            <span class="form__option__ui"></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">Fieldset legend 2</legend>
+
+        <div class="form__group">
+          <label class="form__label" for="form-select-1">Select</label>
+          <select class="form__control form__control--medium" id="form-select-1">
+            <option>Option 1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-input-1">Small</label>
+          <input type="text" class="form__control form__control--small" id="form-input-1" placeholder="This is a placeholder" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-input-2">Medium</label>
+          <input type="text" class="form__control form__control--medium" id="form-input-2" placeholder="This is a placeholder" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-input-3">Large</label>
+          <input type="text" class="form__control form__control--large" id="form-input-3" placeholder="This is a placeholder" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-input-4">XLarge</label>
+          <input type="text" class="form__control form__control--xlarge" id="form-input-4" placeholder="This is a placeholder" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label">Checkbox options (custom)</label>
+          <label class="form__option form__option--custom-checkbox">
+            <input type="checkbox" name="form-checkbox" id="form-checkbox-1" value="Checkbox 1" />
+            <span class="form__option__text">Checkbox 1</span>
+            <span class="form__option__ui"></span>
+          </label>
+          <label class="form__option form__option--custom-checkbox">
+            <input type="checkbox" name="form-checkbox" value="form-checkbox-2" />
+            <span class="form__option__text">Checkbox 2</span>
+            <span class="form__option__ui"></span>
+          </label>
+          <label class="form__option form__option--custom-checkbox">
+            <input type="checkbox" name="form-checkbox" value="form-checkbox-3" />
+            <span class="form__option__text">Checkbox 3</span>
+            <span class="form__option__ui"></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">Fieldset legend 3</legend>
+
+        <div class="form__group">
+          <label class="form__label" for="form-file-1">File input</label>
+          <input type="file" class="form__control" id="form-file-1" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-textarea-1">Textarea</label>
+          <textarea class="form__control" id="form-textarea-1" rows="4" placeholder="This is a placeholder"></textarea>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-input-5">Input group</label>
+          <div class="form__input-group">
+            <input type="text" class="form__control form__control--medium" id="form-input-5" placeholder="This is a placeholder">
+            <span class="form__input-group-button"><button type="submit" class="button button--achromic button--text-hidden button--medium button--example-icon"><span>Button</span></button></span>
+          </div>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-input-6">Input group</label>
+          <div class="form__input-group">
+            <span class="form__input-group-button"><button type="submit" class="button button--achromic button--text-hidden button--medium button--example-icon"><span>Button</span></button></span>
+            <input type="text" class="form__control form__control--medium" id="form-input-6" placeholder="Search location">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+  </div>
 {% endhighlight %}  
   </div>
 </div>
@@ -524,5 +595,76 @@ Be careful using the snippet below when pasting onto sharepoint powered sites as
 <div class="exhibit">
   <div class="exhibit__content">
     <div data-hook='react:modal'></div>
+  </div>
+</div>
+
+<div class="exhibit">
+  <div class="exhibit__content">
+    <article class="card">
+      <a href="#" class="card__contents" title="Click me">
+        <figure class="card__media">
+          <div class="card__thumbnail">
+            <img alt="Card thumb" width="768" height="384" src="http://placehold.it/768x384">
+          </div>
+        </figure>
+        <div class="card__copy">
+          <header class="card__header">
+            <h1 class="card__title">This is a full clickable card</h1>
+            <p class="card__subtitle">Lorem ipsum</p>
+          </header>
+          <div class="card__body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a sollicitudin eros. Sed ultricies velit massa, vitae rutrum nulla varius ut. In feugiat congue leo.</p>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <article class="card">
+      <div class="card__contents">
+        <figure class="card__media">
+          <div class="card__thumbnail">
+            <img alt="Card thumb" width="768" height="384" src="http://placehold.it/768x384">
+          </div>
+        </figure>
+        <div class="card__copy">
+          <header class="card__header">
+            <h1 class="card__title"><a href="#" title="Click me">This is a regular card</a></h1>
+          </header>
+          <div class="card__body">
+            <dl>
+              <dt>Term 1</dt>
+              <dd>Value 1</dd>
+              <dt>Term 2</dt>
+              <dd>Value 2</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card--horizontal">
+      <div class="card__contents">
+        <figure class="card__media">
+          <div class="card__thumbnail">
+            <img width="320" height="320" src="http://placehold.it/320x320" alt="Card thumb">
+          </div>
+        </figure>
+        <div class="card__copy">
+          <header class="card__header">
+            <h1 class="card__title"><a title="Click me" href="#">This is an horizontal card</a></h1>
+          </header>
+          <div class="card__body">
+            <dl>
+              <dt>Term 1</dt>
+              <dd>Value 1</dd>
+              <dt>Term 2</dt>
+              <dd>Value 2</dd>
+            </dl>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ab ut provident, placeat, repellat ea ex dolorum delectus voluptate unde eos magnam. Eaque nemo eius, voluptate accusantium accusamus, mollitia necessitatibus.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
   </div>
 </div>

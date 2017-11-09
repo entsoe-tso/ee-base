@@ -1,0 +1,18 @@
+.sidebar {
+  @include column(12/12);
+  @include media(medium-up) {
+    @include column(3/12);
+  }  
+}
+
+.main_col {
+  @include column(12/12);
+  @include media(medium-up) {
+    @include column(9/12);
+  }  
+}
+
+
+.exhibit__content>.card {
+    margin: 0 0 2rem;
+}

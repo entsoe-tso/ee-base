@@ -7,7 +7,7 @@ layout: default
   {% assign asided = false %}
 {% else %}
   {% capture asided %}
-  <div class="col3 pad1">
+  <div class="sidebar pad1">
     <h4 class="uppercase">Get Started</h4>
     <ul class="side-nav">
         {% assign posts = site.posts | sort: 'date', 'last' %}
@@ -29,7 +29,7 @@ layout: default
 {% endif %}
 
 {% if asided %}
-<div class="col9 pad1 prose--responsive">
+<div class="main_col pad1 prose--responsive">
 {% else %}
 <div class="clearfix">
 {% endif %}
