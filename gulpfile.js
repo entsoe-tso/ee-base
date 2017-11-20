@@ -322,7 +322,7 @@ gulp.task('styles:sp-icons', function () {
 
 gulp.task('build', function () {
   gulp.start(['vendorScripts', 'javascript', 'styles', 'jekyll'], function () {
-    gulp.start(['copy:all', 'copy:temp', 'copy:assets1', 'copy:assets'], function () {
+    gulp.start(['copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', 'copy:temp1'], function () {
       return gulp.src('_site/**/*')
         .pipe($.size({title: 'build', gzip: true}))
         .pipe(exit());
@@ -361,6 +361,11 @@ gulp.task('copy:all', function(done) {
 gulp.task('copy:temp', function(done) {
   return gulp.src(['.tmp/assets/**/*'])
     .pipe(gulp.dest('dist'));
+
+});
+gulp.task('copy:temp1', function(done) {
+  return gulp.src(['.tmp/assets/scripts/*'])
+    .pipe(gulp.dest('_site/assets/scripts'));
 
 });
 
