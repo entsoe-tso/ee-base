@@ -321,7 +321,7 @@ gulp.task('styles:sp-icons', function () {
 // });
 
 gulp.task('build', function () {
-  gulp.start(['vendorScripts', 'javascript', 'styles', 'jekyll'], function () {
+  gulp.start(['vendorScripts', 'javascript', 'styles'],['jekyll'], function () {
     gulp.start(['copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', 'copy:temp1'], function () {
       return gulp.src('_site/**/*')
         .pipe($.size({title: 'build', gzip: true}))
