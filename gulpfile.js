@@ -59,26 +59,28 @@ gulp.task('serve', ['build', 'vendorScripts', 'javascript'], function () {
     }
   });
 
-  gulp.watch(['docs/**/*.html', 'docs/**/*.md', '_config*'], function() {
-    runSequence('jekyll', reload);
-  });
+  gulp.watch(['docs/**/*.html', 'docs/**/*.md', '_config*'], ['jekyll', reload]);
+  //   function() {
+  //   runSequence('jekyll', reload);
+  // });
 
   // watch for changes
-  gulp.watch(['assets/styles/*/*.scss'], function() {
-    runSequence('styles', ['copy:assets'], reload)
-  });
+  gulp.watch(['assets/styles/*/*.scss'], ['styles', 'copy:assets']);
+  //   , function() {
+  //   runSequence('styles', ['copy:assets'], reload)
+  // });
 
   // gulp.watch('assets/icons/**', ['oam:icons']);
   // gulp.watch('sandbox/assets/graphics/collecticons/**', ['collecticons']);
 
   // gulp.watch(['sandbox/assets/styles/**/*.scss', 'assets/styles/**/*.scss'], ['styles']);
-  // gulp.watch('package.json', ['vendorScripts']);
+  gulp.watch('package.json', ['vendorScripts']);
 });
 
 gulp.task('clean', function () {
-  return del(['.tmp', 'dist'])
+  return del(['.tmp', '_site'])
     .then(function () {
-      // $.cache.clearAll();
+      $.cache.clearAll();
     });
 });
 
@@ -314,9 +316,20 @@ gulp.task('styles:sp-icons', function () {
 
 // Main build task
 // Builds the site. Destination --> _site
-gulp.task('build', function(done) {
-  runSequence('clean', ['javascript', 'vendorScripts','jekyll', 'styles'], 'copy:all', 'copy:temp', 'copy:assets1', done);
+// gulp.task('build', function(done) {
+//   runSequence('clean', ['javascript', 'vendorScripts','jekyll', 'styles'], 'copy:all', 'copy:temp', 'copy:assets1', done);
+// });
+
+gulp.task('build', function () {
+  gulp.start(['vendorScripts', 'javascript', 'styles', 'jekyll'], function () {
+    gulp.start(['copy:all', 'copy:temp', 'copy:assets1'], function () {
+      return gulp.src('_site/**/*')
+        .pipe($.size({title: 'build', gzip: true}))
+        .pipe(exit());
+    });
+  });
 });
+
 
 function browserReload() {
   if (shouldReload) {
