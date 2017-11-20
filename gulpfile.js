@@ -129,7 +129,7 @@ gulp.task('jekyll', function (done) {
       args.push('--config=_config-local.yml');
       break;
     case 'production':
-      args.push('--config=_config.yml');
+      args.push('--config=_config-local.yml');
       break;
   }
   // args.push('--config=_config.yml');
