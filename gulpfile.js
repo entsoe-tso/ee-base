@@ -311,7 +311,7 @@ gulp.task('styles:sp-icons', function () {
 
 gulp.task('build', function () {
   gulp.start(['vendorScripts', 'javascript', 'styles'],['jekyll'], function () {
-    gulp.start(['copy:temp2'], function () { //'copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', '
+    gulp.start(['copy:assets'], function () { //'copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', '
       return gulp.src('_site/**/*')
         .pipe($.size({title: 'build', gzip: true}))
         .pipe(exit());
