@@ -91,7 +91,7 @@ gulp.task('clean', function () {
 // renders the site. Once the rendering has finished the assets are copied.
 gulp.task('copy:assets', function(done) {
   return gulp.src('.tmp/assets/**')
-    .pipe(gulp.dest('dist'))
+    // .pipe(gulp.dest('dist'))
     .pipe(gulp.dest('_site/assets'));
 });
 
