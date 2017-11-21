@@ -66,9 +66,6 @@ gulp.task('serve', ['build', 'vendorScripts', 'javascript'], function () {
 
   // watch for changes
   gulp.watch(['assets/styles/*/*.scss'], ['styles', 'copy:assets']);
-  //   , function() {
-  //   runSequence('styles', ['copy:assets'], reload)
-  // });
 
   // gulp.watch('assets/icons/**', ['oam:icons']);
   // gulp.watch('sandbox/assets/graphics/collecticons/**', ['collecticons']);
@@ -181,16 +178,14 @@ gulp.task('javascript', function () {
       .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('.tmp/assets/scripts'))
-      // .pipe(exit());
-      .pipe(reload({stream: true}))
-      // .pipe(exit());
+      .pipe(reload({stream: true}));
   }
 
   watcher
   .on('log', gutil.log)
   .on('update', bundler);
 
-  bundler();
+  return bundler();
 });
 
 // Vendor scripts. Basically all the dependencies in the package.js.
@@ -314,15 +309,9 @@ gulp.task('styles:sp-icons', function () {
     .pipe(reload({stream: true}));
 });
 
-// Main build task
-// Builds the site. Destination --> _site
-// gulp.task('build', function(done) {
-//   runSequence('clean', ['javascript', 'vendorScripts','jekyll', 'styles'], 'copy:all', 'copy:temp', 'copy:assets1', done);
-// });
-
 gulp.task('build', function () {
   gulp.start(['vendorScripts', 'javascript', 'styles'],['jekyll'], function () {
-    gulp.start(['copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', 'copy:temp1'], function () {
+    gulp.start(['copy:temp2'], function () { //'copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', '
       return gulp.src('_site/**/*')
         .pipe($.size({title: 'build', gzip: true}))
         .pipe(exit());
@@ -366,6 +355,11 @@ gulp.task('copy:temp', function(done) {
 gulp.task('copy:temp1', function(done) {
   return gulp.src(['.tmp/assets/scripts/*'])
     .pipe(gulp.dest('_site/assets/scripts'));
+
+});
+gulp.task('copy:temp2', function(done) {
+  return gulp.src(['dist/**/*'])
+    .pipe(gulp.dest('_site/assets'));
 
 });
 
