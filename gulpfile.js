@@ -284,12 +284,6 @@ gulp.task('build', function () {
           .pipe(exit());
       });
     })
-
-    // gulp.start(['copy:assets'], function () { //'copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', '
-    //   return gulp.src('_site/**/*')
-    //     .pipe($.size({title: 'build', gzip: true}))
-    //     .pipe(exit());
-    // });
   });
 });
 

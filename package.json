@@ -8,7 +8,7 @@
     "serve": "gulp ee:icons && gulp serve",
     "ee-icons": "gulp ee:icons",
     "lint": "eslint assets/scripts --ext .js",
-    "build": "gulp build",
+    "build": "NODE_ENV=production gulp build",
     "dist": "gulp",
     "serve-local": "gulp ee:icons && EE_ENV='development' gulp serve",
     "icon-cat": "gulp ee-icons:catalog",
