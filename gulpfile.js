@@ -60,17 +60,10 @@ gulp.task('serve', ['build', 'vendorScripts', 'javascript'], function () {
   });
 
   gulp.watch(['docs/**/*.html', 'docs/**/*.md', '_config*'], ['jekyll', reload]);
-  //   function() {
-  //   runSequence('jekyll', reload);
-  // });
 
   // watch for changes
   gulp.watch(['assets/styles/*/*.scss'], ['styles', 'copy:assets']);
 
-  // gulp.watch('assets/icons/**', ['oam:icons']);
-  // gulp.watch('sandbox/assets/graphics/collecticons/**', ['collecticons']);
-
-  // gulp.watch(['sandbox/assets/styles/**/*.scss', 'assets/styles/**/*.scss'], ['styles']);
   gulp.watch('package.json', ['vendorScripts']);
 });
 
@@ -95,29 +88,29 @@ gulp.task('copy:assets', function(done) {
     .pipe(gulp.dest('_site/assets'));
 });
 
-gulp.task('copy:assets1', function(done) {
-  return gulp.src('dist/**')
-    .pipe(gulp.dest('_site/assets'));
-});
+// gulp.task('copy:assets1', function(done) {
+//   return gulp.src('dist/**')
+//     .pipe(gulp.dest('_site/assets'));
+// });
 
-gulp.task('copy:css', function(done) {
-  return gulp.src('.tmp/assets/styles/*')
-    .pipe(gulp.dest('dist/styles'));
-});
+// gulp.task('copy:css', function(done) {
+//   return gulp.src('.tmp/assets/styles/*')
+//     .pipe(gulp.dest('dist/styles'));
+// });
 
-gulp.task('copy:fonts', function(done) {
-  return gulp.src('assets/fonts/**/*')
-    .pipe(gulp.dest('dist'))
-});
+// gulp.task('copy:fonts', function(done) {
+//   return gulp.src('assets/fonts/**/*')
+//     .pipe(gulp.dest('dist'))
+// });
 
-gulp.task('copy:images', function(done) {
-  return gulp.src('assets/graphics/**')
-    .pipe(gulp.dest('dist'))
-});
+// gulp.task('copy:images', function(done) {
+//   return gulp.src('assets/graphics/**')
+//     .pipe(gulp.dest('dist'))
+// });
 
-gulp.task('copy', ['copy:css', 'copy:fonts', 'copy:images'], function(done) {
+// gulp.task('copy', ['copy:css', 'copy:fonts', 'copy:images'], function(done) {
 
-});
+// });
 
 
 // Build the jekyll website.
@@ -326,9 +319,7 @@ function browserReload() {
   }
 }
 
-gulp.task('build:production', function(done) {
-  runSequence('copy:all', 'copy:temp', done);
-});
+// gulp.task('build:production',['copy:all', 'copy:temp']);
 
 
 // //////////////////////////////////////////////////////////////////////////////
