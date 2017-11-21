@@ -12,7 +12,7 @@
     "dist": "gulp",
     "serve-local": "gulp ee:icons && EE_ENV='development' gulp serve",
     "icon-cat": "gulp ee-icons:catalog",
-    "gulp": "gulp copy:assets"
+    "gulp": "gulp vendorScripts"
   },
   "author": "Colin Broderick",
   "license": "ISC",

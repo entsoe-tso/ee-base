@@ -152,7 +152,7 @@ gulp.task('javascript', function () {
     if (pkg.dependencies) {
       watcher.external(Object.keys(pkg.dependencies));
     }
-    watcher.bundle()
+    return watcher.bundle()
       .on('error', function (e) {
         notifier.notify({
           title: 'Oops! Browserify errored:',
@@ -181,7 +181,7 @@ gulp.task('javascript', function () {
   return bundler();
 });
 
-// Vendor scripts. Basically all the dependencies in the package.js.
+/// Vendor scripts. Basically all the dependencies in the package.js.
 // Therefore be careful and keep the dependencies clean.
 gulp.task('vendorScripts', function () {
   // Ensure package is updated.
@@ -190,43 +190,16 @@ gulp.task('vendorScripts', function () {
     debug: true,
     require: pkg.dependencies ? Object.keys(pkg.dependencies) : []
   });
-  vb.bundle()
+  return vb.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source('vendor.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('.tmp/assets/scripts/'))
-    // .pipe(exit());
     .pipe(reload({stream: true}));
 });
 
-// /////////////////////////////////////////////////////////////////////////////
-// ------------------------ Collecticon tasks --------------------------------//
-// -------------------- (Font generation related) ----------------------------//
-// ---------------------------------------------------------------------------//
-// -------------------- not using sandbox so not needed yet ------------------//
-// gulp.task('collecticons', function (done) {
-//   var args = [
-//     'node_modules/collecticons-processor/bin/collecticons.js',
-//     'compile',
-//     'assets/graphics/collecticons/',
-//     '--font-embed',
-//     '--font-dest', 'assets/fonts',
-//     '--font-name', 'Collecticons',
-//     '--font-types', 'woff',
-//     '--style-format', 'sass',
-//     '--style-dest', 'app/assets/styles/',
-//     '--style-name', 'collecticons',
-//     '--class-name', 'collecticons',
-//     '--author-name', 'MapLesotho',
-//     '--author-url', 'https://maplesotho.com/',
-//     '--no-preview'
-//   ];
-
-//   return cp.spawn('node', args, {stdio: 'inherit'})
-//     .on('close', done);
-// });
 
 // /////////////////////////////////////////////////////////////////////////////
 // ------------------------- EE icons tasks ---------------------------------//
@@ -303,12 +276,20 @@ gulp.task('styles:sp-icons', function () {
 });
 
 gulp.task('build', function () {
-  gulp.start(['vendorScripts', 'javascript', 'styles'],['jekyll'], function () {
-    gulp.start(['copy:assets', 'copy:temp0'], function () { //'copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', '
-      return gulp.src('_site/**/*')
-        .pipe($.size({title: 'build', gzip: true}))
-        .pipe(exit());
-    });
+  gulp.start(['clean', 'vendorScripts', 'javascript', 'styles'], function () {
+    gulp.start(['jekyll'], function () {
+      gulp.start(['copy:assets'], function () {
+        return gulp.src('_site/**/*')
+          .pipe($.size({title: 'build', gzip: true}))
+          .pipe(exit());
+      });
+    })
+
+    // gulp.start(['copy:assets'], function () { //'copy:all', 'copy:temp', 'copy:assets1', 'copy:assets', '
+    //   return gulp.src('_site/**/*')
+    //     .pipe($.size({title: 'build', gzip: true}))
+    //     .pipe(exit());
+    // });
   });
 });
 
