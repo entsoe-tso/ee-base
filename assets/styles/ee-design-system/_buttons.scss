@@ -70,19 +70,19 @@
 /* Base */
 
 .button--base {
-  @include button-variation("filled", "dark", $cool-blue);
+  @include button-variation("filled", "dark", $blue);
 }
 
 /* Base Bounded */
 
 .button--base-bounded {
-  @include button-variation("bounded", null, $cool-blue);
+  @include button-variation("bounded", null, $blue);
 }
 
 /* Base Unbounded */
 
 .button--base-unbounded {
-  @include button-variation("unbounded", null, $cool-blue);
+  @include button-variation("unbounded", null, $blue);
 }
 
 /* Achromic */
