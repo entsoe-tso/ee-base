@@ -6,21 +6,22 @@
 
 /* Colours
 	=============================================================================== */
-$green-blue: #4ea0aa; // green-blue-
-$green: #63978a; // green
+$green-blue: #4ea0aa; 
+$white: #FFFFFF;
+$black: #000000;
 $cream: #e8e4d1;
 $purple: #473050;
-$blue: #1c3968;
 $dark-grey: #666868;
-$orange: #e65c25;
 $red: #ce202c;
 $brown: #301710;
 $light-grey: #e9e9ea;
-
-$electric-yellow: #fcc40f;
 $cool-red: #77282A;
-$cool-blue: #23618e;
-
+//new colors
+$orange: #ff6a00;
+$green: #00a993; 
+$orange: #ff6a00;
+$yellow: #ffd600;
+$blue: #114cb1;
 
 /* Colors
    ========================================================================== */
@@ -35,7 +36,7 @@ $success-color: $secondary-color;                       //
 $warning-color: $orange;                                // Energy Yellow
 $info-color: $primary-color;                            //
 
-$link-color: $cool-blue;
+$link-color: $blue;
 $base-alpha-color: rgba($base-color, 0.12);
 $base-semi-alpha-color: rgba($base-color, 0.08);
 
