@@ -4,5 +4,5 @@
 // /////////////////////////////////////////////////////////////////////////////
 // ------------------------ Available modules --------------------------------//
 // ---------------------------------------------------------------------------//
-module.exports.Dropdown = require('./dropdown');
+// module.exports.Dropdown = require('./dropdown');
 module.exports.Modal = require('./modal');

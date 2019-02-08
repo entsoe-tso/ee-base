@@ -47,7 +47,7 @@ var prodBuild = false;
 // ------------------------- Callable tasks ----------------------------------//
 // ---------------------------------------------------------------------------//
 
-gulp.task('serve', ['build', 'vendorScripts', 'javascript'], function () {
+gulp.task('serve', ['vendorScripts', 'javascript', 'styles', 'jekyll'], function () { //, 'vendorScripts', 'javascript'
   browserSync({
     port: 3000,
     server: {
@@ -59,7 +59,14 @@ gulp.task('serve', ['build', 'vendorScripts', 'javascript'], function () {
     }
   });
 
-  gulp.watch(['docs/**/*.html', 'docs/**/*.md', '_config*'], ['jekyll', reload]);
+  gulp.watch(
+    [
+      'docs/**/*.html', 
+      'docs/**/*.md', 
+      '_config*'
+    ], 
+    ['jekyll', reload]
+  );
 
   // watch for changes
   gulp.watch(['assets/styles/*/*.scss'], ['styles', 'copy:assets']);
@@ -115,7 +122,9 @@ gulp.task('copy:assets', function(done) {
 
 // Build the jekyll website.
 gulp.task('jekyll', function (done) {
-  var args = ['build'];
+  var args = ['exec', 'jekyll', 'build'];
+
+  // var args = ['build'];
   switch (process.env.EE_ENV) {
     case 'development':
       args.push('--config=_config-local.yml');
@@ -125,7 +134,7 @@ gulp.task('jekyll', function (done) {
       break;
   }
   // args.push('--config=_config.yml');
-  return cp.spawn('jekyll', args, {stdio: 'inherit'})
+  return cp.spawn('bundle', args, {stdio: 'inherit'})
     .on('close', done);
 });
 

@@ -4,7 +4,7 @@ layout: default
 home: true
 ---
 
-<div class="col4 pad1">
+<div class="sidebar col4 pad1">
 <h4 class="uppercase">Get Started</h4>
 <ul >
     {% assign posts = site.posts | sort: 'date', 'last' %}
@@ -13,7 +13,7 @@ home: true
     {% endfor %}
 </ul>
 </div>
-<div class="col8" markdown="1">
+<div class="main_col col8" markdown="1">
 
 # Welcome
 

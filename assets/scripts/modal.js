@@ -1,7 +1,12 @@
 'use strict';
+import createReactClass from 'create-react-class'
 import React from 'react';
 import TetherComponent from 'react-tether';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import PropTypes from 'prop-types';
+React.PropTypes = PropTypes;
+React.createClass = createReactClass;
 
 var Modal = React.createClass({
   displayName: 'Modal',
