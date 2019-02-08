@@ -81,18 +81,17 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scrollbar": "git+https://github.com/danielfdsilva/reactScrollbar.git#v2.0.0-custom",
+    "react-tether": "^1.0.1",
+    "react-transition-group": "^2.4.0",
+
     "create-react-class": "^15.6.3",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-addons-css-transition-group": "^15.0.2",
-    "react-dom": "^16.4.1",
-    "react-scrollbar": "git+https://github.com/danielfdsilva/reactScrollbar.git#3c3976fc82359c1b46bace48d89ce716ba748dca",
-    "react-tether": "^1.0.1"
+    "prop-types": "^15.6.2"
+    
   },
   "peerDependencies": {
-    "react": "^15.0.1",
-    "react-addons-css-transition-group": "^15.0.2",
-    "react-dom": "^15.0.1",
-    "react-tether": "^0.5.1"
+    "react": "16.4.2"
   }
 }

@@ -2,32 +2,32 @@
 import React from 'react';
 import { render } from 'react-dom';
 import OAM from '../../../assets/scripts/index';
-var { Modal, ModalHeader, ModalBody, ModalFooter } = OAM.Modal;
+// var { Modal, ModalHeader, ModalBody, ModalFooter } = OAM.Modal;
+const { Modal, ModalHeader, ModalBody, ModalFooter } = OAM.Modal;
 
-var ModalShowcase = React.createClass({
-  displayName: 'ModalShowcase',
+class ModalShowcase extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { open: false };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
 
-  getInitialState: function () {
-    return {
-      open: false
-    };
-  },
-
-  openModal: function () {
+  openModal () {
     this.setState({open: true});
-  },
+  }
 
-  closeModal: function () {
+  closeModal () {
     this.setState({open: false});
-  },
+  }
 
-  render: function () {
+  render () {
     return (
       <div>
-        <button className='button button--achromic' type='button' onClick={this.openModal}><span>Open Modal</span></button>
+        <button className='button button--primary-raised-dark' type='button' onClick={this.openModal}><span>Open Modal</span></button>
         <Modal
           id='modal-showcase'
-          className='modal--dark modal--large'
+          className='modal--dark modal--medium'
           onCloseClick={this.closeModal}
           revealed={this.state.open} >
 
@@ -35,6 +35,9 @@ var ModalShowcase = React.createClass({
             <div className='modal__headline'>
               <p className='modal__subtitle'>Modal subtitle</p>
               <h1 className='modal__title'>This is the modal title</h1>
+            </div>
+            <div className='modal__introduction'>
+              <p>This a description. It contains extra information about lorem ipsum dolor sit amet.</p>
             </div>
           </ModalHeader>
           <ModalBody>
@@ -45,19 +48,24 @@ var ModalShowcase = React.createClass({
             </div>
           </ModalBody>
           <ModalFooter>
-            <button className='button button--achromic' type='button'><span>Cancel</span></button>
-            <button className='button button--base' type='submit'><span>Save</span></button>
+            <button className='mfa-xmark' type='button' title='Cancel' onClick={this.closeModal}><span>Cancel</span></button>
+            <button className='mfa-tick' type='submit' title='Save'><span>Save</span></button>
           </ModalFooter>
         </Modal>
       </div>
     );
   }
-});
+}
 
-var renderModal = function () {
+// var renderModal = function () {
+//   var container = document.querySelector('[data-hook="react:modal"]');
+//   if (container === null) return;
+//   render(<ModalShowcase />, container);
+// };
+
+const renderModal = function () {
   var container = document.querySelector('[data-hook="react:modal"]');
   if (container === null) return;
   render(<ModalShowcase />, container);
 };
-
 renderModal();
